@@ -1,22 +1,20 @@
-/* Header styling */
-#titleHeader > h1:nth-child(1) {
-  font-family: "Playfair Display", serif !important;
-  font-size: 80px !important;
+.top-section article:not(.featured) .article-content {
+  min-height: 240px;
 }
-/* NavBar styling */
-.nav-pills .nav-link.active {
-  background-color: black !important;
-  color: white !important;
+
+.thumbnail img,
+.featured.thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
-/* .nav-pills {
-      color: black !important;
-   } */
-.nav-item {
-  border-top: 1px solid;
-  padding-top: 10px;
-  color: black;
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
 }
-.nav-fill .nav-item .nav-link,
-.nav-justified .nav-item .nav-link {
-  color: black;
+
+.featured.thumbnail {
+  height: 400px;
+  width: 100%;
 }
