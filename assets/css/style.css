@@ -1,0 +1,22 @@
+/* Header styling */
+#titleHeader > h1:nth-child(1) {
+  font-family: "Playfair Display", serif !important;
+  font-size: 80px !important;
+}
+/* NavBar styling */
+.nav-pills .nav-link.active {
+  background-color: black !important;
+  color: white !important;
+}
+/* .nav-pills {
+      color: black !important;
+   } */
+.nav-item {
+  border-top: 1px solid;
+  padding-top: 10px;
+  color: black;
+}
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
+  color: black;
+}
