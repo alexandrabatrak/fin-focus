@@ -9,14 +9,20 @@
   color: white !important;
 }
 /* .nav-pills {
-      color: black !important;
-   } */
+        color: black !important;
+     } */
 .nav-item {
   border-top: 1px solid;
-  padding-top: 10px;
+  padding-top: 10px !important;
   color: black;
 }
 .nav-fill .nav-item .nav-link,
 .nav-justified .nav-item .nav-link {
+  color: black;
+}
+/* Search form */
+.d-flex {
+  border-top: 1px solid;
+  padding-top: 10px !important;
   color: black;
 }
