@@ -11,6 +11,10 @@
       href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
       rel="stylesheet"
     />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet" />
+
     <title>Finfocus</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -76,42 +80,49 @@
     <main class="container-fluid">
       <div class="row mx-auto mt-5" style="max-width: 1600px"
       <div class="row">
+    </div>
+
         <section class="main-content col-sm-12 col-md-8">
           <div class="top-section">
             <div class="heading-title">
               <h2>Top news</h2>
             </div>
-            <article class="featured my-3">
+            <article class="featured my-3" id="featured">
               <div
-                class="bg-image"
-                style="height: 400px; width: 100%; background-color: grey"
-              ></div>
+                class="featured thumbnail"
+                style="height: 400px; width: 100%"></div>
               <div class="article-details position-relative">
                 <div
-                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"
-                >
-                  Business
-                </div>
-                <div class="article-title mt-1">
-                  <h3>Title Number 1</h3>
-                </div>
+                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
+                <div class="article-title py-3 col-8"></div>
                 <div class="row">
                   <div class="col-sm-12 col-md-8">
-                    <div class="article-abstract py-3">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla turpis eros, gravida nec magna id, faucibus
-                        rhoncus enim.
-                      </p>
-                    </div>
+                    <div class="article-abstract pt-2 pb-3"></div>
                   </div>
+                  <div
+                    class="col-sm-12 col-md-4 d-flex flex-column justify-content-start align-items-end pt-2 pb-3">
+                    <div class="by-line"></div>
+                    <div class="last-updated"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="my-5 py-3">
+              <div class="row">
+                <div class="col-sm-12 col-md-3">
+                  <div
+                    class="thumbnail"
 
-                  <div
-                    class="col-sm-12 col-md-4 d-flex flex-column justify-content-start align-items-end py-3"
-                  >
-                    <div class="by-line"><span>By</span> Author name</div>
-                    <div class="last-updated">
-                      <span class="f-bold">10/02/2023</span>
+                    style="width: 100%; height: 100%"></div>
+                </div>
+                <div class="col-sm-12 col-md-9">
+                  <div class="article-details">
+                    <div class="article-title mt-1"></div>
+                    <div class="article-abstract"></div>
+                    <div class="d-flex flex-row justify-content-between">
+                      <div class="by-line"></div>
+                      <div class="last-updated"></div>
+
                     </div>
                   </div>
                 </div>
@@ -122,70 +133,23 @@
                 <div class="col-sm-12 col-md-3">
                   <div
                     class="thumbnail"
-                    style="width: 100%; height: 100%; background-color: grey"
-                  ></div>
+
+                    style="width: 100%; height: 100%"></div>
                 </div>
                 <div class="col-sm-12 col-md-9">
                   <div class="article-details">
-                    <div class="article-title mt-1">
-                      <h3 class="display-4">Title Number 2</h3>
-                    </div>
-                    <div class="article-abstract">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla turpis eros, gravida nec magna id, faucibus
-                        rhoncus enim.
-                      </p>
-                    </div>
+                    <div class="article-title mt-1"></div>
+                    <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
-                      <div class="by-line"><span>By</span>Author name</div>
-                      <div class="last-updated">
-                        <span class="f-bold">10/02/2023</span>
-                      </div>
+                      <div class="by-line"></div>
+                      <div class="last-updated"></div>
+
                     </div>
                   </div>
                 </div>
               </div>
             </article>
-            <article class="my-5 py-3">
-              <div class="row">
-                <div class="col-sm-12 col-md-3">
-                  <div
-                    class="thumbnail"
-                    style="width: 100%; height: 100%; background-color: grey"
-                  ></div>
-                </div>
-                <div class="col-sm-12 col-md-9">
-                  <div class="article-details">
-                    <div class="article-title mt-1">
-                      <h3 class="display-4">Tite Number 3</h3>
-                    </div>
-                    <div class="article-abstract">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla turpis eros, gravida nec magna id, faucibus
-                        rhoncus enim.
-                      </p>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between">
-                      <div class="by-line"><span>By</span>Author name</div>
-                      <div class="last-updated">
-                        <span class="f-bold">10/02/2023</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <div class="thumbnail"></div>
-              <div class="article-details">
-                <div class="article-title"></div>
-                <div class="article-abstract"></div>
-                <div class="by-line"></div>
-                <div class="last-updated"></div>
-              </div>
-            </article>
+
           </div>
           <!-- end of top-section -->
           <div class="category-news">
@@ -322,11 +286,11 @@
         <aside class="col-sm-12 col-md-4"></aside>
       </div>
     </main>
+
   <!-- ------------------------------------------------------------------- -->
   <!-- Footer -->
   <!-- ------------------------------------------------------------------- -->
   <section class="">
-  <!-- Footer -->
   <footer class="bg-dark text-white">
     <!-- Grid container -->
     <div class="container p-4">
@@ -397,14 +361,12 @@
   </footer>
   <!-- Footer -->
 </section>
-  <!-- Footer -->
-</section>
+    <footer></footer>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
