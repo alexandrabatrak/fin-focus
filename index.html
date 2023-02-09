@@ -14,11 +14,12 @@
     <link
       href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
       rel="stylesheet" />
-
+    <link href="./assets/css/style.css" rel="stylesheet" />
     <title>Finfocus</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
+    <header class="container-fluid bg-black">
     <!-- ------------------------------------------------------------------- -->
     <!-- Navbar -->
     <!-- ------------------------------------------------------------------- -->
@@ -53,7 +54,7 @@
                 <a class="nav-link text-white" href="#">Business</a>
               </li>
               <li class="nav-item" href="#">
-                <a class="nav-link text-white" href="#">Enterpreneurs</a>
+                <a class="nav-link text-white" href="#">Entrepreneurs</a>
               </li>
               <li class="nav-item" href="#">
                 <a class="nav-link text-white" href="#">Your money</a>
@@ -73,24 +74,20 @@
           </div>
         </div>
       </nav>
-      <!-- ------------------------------------------------------------------- -->
-      <!-- Main content section -->
-      <!-- ------------------------------------------------------------------- -->
-    </div>
+      <div class="stock-slider-wrapper">
+        <div style="width: 100%; height: 125px"></div>
+      </div>
+    </header>
     <main class="container-fluid">
-      <div class="row mx-auto mt-5" style="max-width: 1600px"
-      <div class="row">
-    </div>
-
+      <div class="row mx-auto mt-5" style="max-width: 1600px">
+​
         <section class="main-content col-sm-12 col-md-8">
           <div class="top-section">
             <div class="heading-title">
               <h2>Top news</h2>
             </div>
             <article class="featured my-3" id="featured">
-              <div
-                class="featured thumbnail"
-                style="height: 400px; width: 100%"></div>
+              <div class="featured thumbnail"></div>
               <div class="article-details position-relative">
                 <div
                   class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
@@ -107,209 +104,84 @@
                 </div>
               </div>
             </article>
-            <article class="my-5 py-3">
-              <div class="row">
-                <div class="col-sm-12 col-md-3">
-                  <div
-                    class="thumbnail"
-
-                    style="width: 100%; height: 100%"></div>
+            <article class="my-4 py-3">
+              <div class="d-flex">
+                <div class="flex-shrink-1 me-4">
+                  <div class="thumbnail"></div>
                 </div>
-                <div class="col-sm-12 col-md-9">
+                <div class="article-content w-100 position-relative">
+                  <div
+                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
                   <div class="article-details">
-                    <div class="article-title mt-1"></div>
+                    <div class="article-title pt-1 pb-3 col-8"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
-
+​
                     </div>
                   </div>
                 </div>
               </div>
             </article>
-            <article class="my-5 py-3">
-              <div class="row">
-                <div class="col-sm-12 col-md-3">
-                  <div
-                    class="thumbnail"
-
-                    style="width: 100%; height: 100%"></div>
+            <article class="my-4 py-3">
+              <div class="d-flex">
+                <div class="flex-shrink-1 me-4">
+                  <div class="thumbnail"></div>
                 </div>
-                <div class="col-sm-12 col-md-9">
+                <div class="article-content w-100 position-relative">
+                  <div
+                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
                   <div class="article-details">
-                    <div class="article-title mt-1"></div>
+                    <div class="article-title pt-1 pb-3 col-8"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
-
+​
                     </div>
                   </div>
                 </div>
               </div>
             </article>
-
           </div>
+          </section>
           <!-- end of top-section -->
-          <div class="category-news">
+          <section class="category-news">
             <div class="heading-title">
               <h2>Other news</h2>
             </div>
             <!-- navigational tabs -->
-
+​
             <!-- end of navigational tabs-->
-            <div class="row">
-              <div class="col-6 col-sm-12">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-6 col-sm-12">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
+            <div class="category-news-render">
+              <div class="row">
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-              <div class="col-sm-12 col-md-6">
-                <article>
-                  <div class="thumbnail"></div>
-                  <div class="article-details">
-                    <div class="article-title"></div>
-                    <div class="article-abstract"></div>
-                    <div class="by-line"></div>
-                    <div class="last-updated"></div>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
           <!-- end of category-news -->
         </section>
         <!-- end of section main-content -->
         <aside class="col-sm-12 col-md-4"></aside>
       </div>
     </main>
-
+​
   <!-- ------------------------------------------------------------------- -->
   <!-- Footer -->
   <!-- ------------------------------------------------------------------- -->
   <section class="">
   <footer class="bg-dark text-white">
-    <!-- Grid container -->
     <div class="container p-4">
-      <!--Grid row-->
       <div class="row">
-        <!--Grid column-->
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
           <h5 class="text-uppercase">FINFCOUS</h5>
-
+​
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
           </p>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase">Links 1</h5>
-
+​
           <ul class="list-unstyled mb-0">
             <li>
               <a href="#!" class="text-white">About</a>
@@ -325,12 +197,9 @@
             </li>
           </ul>
         </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-0">Links 2</h5>
-
+​
           <ul class="list-unstyled">
             <li>
               <a href="#!" class="text-white">Finance</a>
@@ -339,30 +208,19 @@
               <a href="#!" class="text-white">Buisness</a>
             </li>
             <li>
-              <a href="#!" class="text-white">Enterpreneurs</a>
+              <a href="#!" class="text-white">Entrepreneurs</a>
             </li>
             <li>
               <a href="#!" class="text-white">Your money</a>
             </li>
           </ul>
         </div>
-        <!--Grid column-->
       </div>
-      <!--Grid row-->
     </div>
-    <!-- Grid container -->
-
-    <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1);">
-     LOST MARY © 2022 Copyright:
-      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      <p>LOST MARY © 2022</p>
     </div>
-    <!-- Copyright -->
   </footer>
-  <!-- Footer -->
-</section>
-    <footer></footer>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
