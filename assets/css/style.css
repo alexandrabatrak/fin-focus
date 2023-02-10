@@ -49,6 +49,15 @@ article:not(.featured) .badge {
   color: white;
 }
 
+.category-news {
+  min-height: 500px;
+}
+
+.category-news .thumbnail {
+  height: 100px;
+  width: 100px;
+}
+
 /* About page */
 
 .column {
@@ -92,7 +101,7 @@ article:not(.featured) .badge {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: #000;
+  background-color: var(--black);
   text-align: center;
   cursor: pointer;
   width: 100%;
