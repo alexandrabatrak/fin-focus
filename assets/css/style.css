@@ -1,3 +1,8 @@
+:root {
+  --light: rgb(221, 221, 221);
+  --black: rgb(0, 0, 0);
+  --accent: rgb(195 1 1);
+}
 
 .top-section article:not(.featured) .article-content {
   min-height: 240px;
@@ -19,3 +24,76 @@
   height: 400px;
   width: 100%;
 }
+
+article .badge {
+  letter-spacing: 6px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+article:not(.featured) .badge {
+  left: -1.5rem;
+  background: var(--accent) !important;
+}
+
+.category-news .nav-pills .nav-link {
+  background: var(--light);
+  color: var(--black);
+  letter-spacing: 2px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.category-news .nav-pills .nav-link.active {
+  background: var(--accent);
+  color: white;
+}
+
+
+.column {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
