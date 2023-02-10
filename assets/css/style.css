@@ -63,7 +63,7 @@ article:not(.featured) .badge {
 }
 
 .about-section {
-  padding: 50px;
+  padding: 25px;
   text-align: center;
   background-color: #474e5d;
   color: white;
@@ -71,12 +71,14 @@ article:not(.featured) .badge {
 
 .container {
   padding: 0 16px;
+  margin-top: 10px;
 }
+
 
 .container::after, .row::after {
   content: "";
   clear: both;
-  display: table;
+  display: row;
 }
 
 .title {
@@ -97,3 +99,13 @@ article:not(.featured) .badge {
 
 .button:hover {
   background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+}
+
+
+ 
