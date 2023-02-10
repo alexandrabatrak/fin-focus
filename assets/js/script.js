@@ -23,6 +23,7 @@ $.ajax({
       updateArticleContent(article, $(articles[i]));
     }
     function updateArticleContent(article, $articleElement) {
+      // TODO: make a whole article link? or think of how to do it best
       let largeThumnail = article.multimedia[0];
       let thumbnail = article.multimedia[1];
       // articleThumbnailAlt = articleThumbnail.caption;
@@ -45,7 +46,10 @@ $.ajax({
         }" alt="${$articleElement.hasClass('featured') ? largeThumnail.caption : thumbnail.caption}"/>
       `);
       $articleElement.find('.badge').text(`${category}`);
-      $articleElement.find('.article-title').append(`<h3>${title}</h3>`);
+      $articleElement.find(
+        '.article-title'
+      ).append(`<a href="${articleURL} target="_blank"><h3>
+      ${title}</h3></a>`);
       $articleElement.find('.article-abstract').append(`<p>${abstract}</p>`);
       $articleElement.find('.by-line').text(`${byline}`);
       $articleElement
@@ -57,46 +61,81 @@ $.ajax({
 
 // TODO: display full list of top news on the aside bar
 
-// this is a query for search
-// use archives maybe
-// const category = $('.category-tab').attr('data-category');
+// query for search and tabs
 // ??: either populate on load, or when user selects the tab
-// NO ARTICLES FOR finance and entrepreneurs - use the archive instead??
-let category = 'finance'; // -- dynamic category
-let keyword = category; // change for user search
-let startDate = moment('1980').format('YYYYMMDD');
-console.log(startDate);
-let endDate = moment().format('YYYYMMDD');
-let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keyword}&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
+let categoryNews = $('.category-news-articles-wrapper .row');
+let keywords = $('.category-news .nav').find('.category-tab').data('category');
+searchNews(keywords);
+$('.category-news').on('click', '.nav-item button', function () {
+  keywords = $(this).attr('data-category');
+  categoryNews.empty();
+  searchNews(keywords);
+});
 
-// fq=news_desk:("${category}")
-$.ajax({
-  url: searchArticles,
-  method: 'GET',
-})
-  .then(function (resp) {
-    console.log(resp);
+function searchNews(keywords) {
+  let startDate = moment('1980').format('YYYYMMDD');
+  let endDate = moment().format('YYYYMMDD');
+  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
-    let results = resp.response.docs;
-    console.log(results);
-
-    function renderArticles() {
-      append(
-        `<div class='col-6 col-sm-12'>
-          <article>
-            <div class='thumbnail'></div>
-            <div class='article-details'>
-              <div class='article-title'></div>
-              <div class='article-abstract'></div>
-              <div class='by-line'></div>
-              <div class='last-updated'></div>
-            </div>
-          </article>
-      </div>`
-      );
-    }
+  $.ajax({
+    url: searchArticles,
+    method: 'GET',
   })
-  .catch((err) => console.log(err));
+    .then(function (resp) {
+      let results = resp.response.docs;
+
+      for (let i = 0; i < results.length; i++) {
+        let thumbnail = results[i].multimedia[21];
+        let category = results[i].section_name;
+        let subcategory = results[i].subsection; // not all articles have
+        let title = results[i].headline.main;
+        let articleURL = results[i].web_url;
+        let abstract = results[i].abstract;
+        let leadParagraph = results[i].lead_paragraph;
+        let tags = results[i].keywords; // array
+        let byline = results[i].byline.original;
+        let publishedDate = moment(results[i].pub_date).format('LLL');
+        categoryNews = $('.category-news-articles-wrapper').filter(function () {
+          return $(this).data('category') === keywords;
+        });
+        categoryNews.append(
+          `<div class="col-sm-12 col-md-6">
+            <div class="thumbnail flex-shrink-1">
+              <img src="https://www.nytimes.com/${thumbnail.url}" alt="${
+            thumbnail.caption
+          }">
+            </div>
+            <article class="d-flex">
+              <div class="article-details w-100">
+                <div class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                <div class="article-title">
+                  <a href="${articleURL}" target="_blank">
+                    <h3>${title}</h3>
+                  </a>
+                </div>
+                <div class="article-abstract">
+                  <p>${abstract}</p>
+                </div>
+                <div class="article-lead">
+                  <p>${leadParagraph}...</p>
+                </div>
+                <div class="by-line">${byline}</div>
+                <div class="published">
+                  <span>Published on </span>${publishedDate}
+                </div>
+              </div>
+              <div class="article-footer">
+                <div class="subcategory">
+                  ${subcategory ? subcategory : ''}
+                </div>
+              </div>
+            </article>
+          </div>`
+        );
+      }
+    })
+    .catch((err) => console.log(err));
+}
 
 // polygon.io
 API_KEY_STOCKS = '92bKvhEWQYOkEYm66Zp3bDSWLJJY5C5q';
