@@ -1,3 +1,8 @@
+:root {
+  --light: rgb(221, 221, 221);
+  --black: rgb(0, 0, 0);
+  --accent: rgb(195 1 1);
+}
 
 .top-section article:not(.featured) .article-content {
   min-height: 240px;
@@ -18,4 +23,28 @@
 .featured.thumbnail {
   height: 400px;
   width: 100%;
+}
+
+article .badge {
+  letter-spacing: 6px;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+article:not(.featured) .badge {
+  left: -1.5rem;
+  background: var(--accent) !important;
+}
+
+.category-news .nav-pills .nav-link {
+  background: var(--light);
+  color: var(--black);
+  letter-spacing: 2px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.category-news .nav-pills .nav-link.active {
+  background: var(--accent);
+  color: white;
 }
