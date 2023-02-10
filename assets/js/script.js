@@ -23,8 +23,8 @@ $.ajax({
       updateArticleContent(article, $(articles[i]));
     }
     function updateArticleContent(article, $articleElement) {
-      let largeThumnail = article.multimedia[0].url;
-      let thumbnail = article.multimedia[1].url;
+      let largeThumnail = article.multimedia[0];
+      let thumbnail = article.multimedia[1];
       // articleThumbnailAlt = articleThumbnail.caption;
       let category = article.section;
       let subcategory = article.subsection; // not all articles have
@@ -39,10 +39,10 @@ $.ajax({
 
       $articleElement.find('.thumbnail').append(`
         <img src="${
-          $articleElement.hasClass('featured') ? largeThumnail : thumbnail
-        }"
-            alt="${thumbnail.caption}"
-            style="object-fit:cover;width:100%;height:100%" />
+          $articleElement.hasClass('featured')
+            ? largeThumnail.url
+            : thumbnail.url
+        }" alt="${$articleElement.hasClass('featured') ? largeThumnail.caption : thumbnail.caption}"/>
       `);
       $articleElement.find('.badge').text(`${category}`);
       $articleElement.find('.article-title').append(`<h3>${title}</h3>`);
@@ -59,24 +59,44 @@ $.ajax({
 
 // this is a query for search
 // use archives maybe
-let sections = [
-  '"Business Day"',
-  '"Business"',
-  '"Enterpreneurs"',
-  '"Financial"',
-  '"Your money"',
-];
-let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=news_desk:("Business Day", "Business", "Entrepreneurs", "Financial", "Your Money")&api-key=${API_KEY_NT}`;
+// const category = $('.category-tab').attr('data-category');
+// ??: either populate on load, or when user selects the tab
+// NO ARTICLES FOR finance and entrepreneurs - use the archive instead??
+let category = 'finance'; // -- dynamic category
+let keyword = category; // change for user search
+let startDate = moment('1980').format('YYYYMMDD');
+console.log(startDate);
+let endDate = moment().format('YYYYMMDD');
+let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keyword}&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
-// $.ajax({
-//   url: searchArticles,
-//   method: 'GET',
-// })
-//   .then(function (resp) {
-//     // console.log(resp);
-//     // filter results by business only
-//   })
-//   .catch((err) => console.log(err));
+// fq=news_desk:("${category}")
+$.ajax({
+  url: searchArticles,
+  method: 'GET',
+})
+  .then(function (resp) {
+    console.log(resp);
+
+    let results = resp.response.docs;
+    console.log(results);
+
+    function renderArticles() {
+      append(
+        `<div class='col-6 col-sm-12'>
+          <article>
+            <div class='thumbnail'></div>
+            <div class='article-details'>
+              <div class='article-title'></div>
+              <div class='article-abstract'></div>
+              <div class='by-line'></div>
+              <div class='last-updated'></div>
+            </div>
+          </article>
+      </div>`
+      );
+    }
+  })
+  .catch((err) => console.log(err));
 
 // polygon.io
 API_KEY_STOCKS = '92bKvhEWQYOkEYm66Zp3bDSWLJJY5C5q';
