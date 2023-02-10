@@ -80,30 +80,31 @@
     </header>
     <main class="container-fluid">
       <div class="row mx-auto mt-5" style="max-width: 1600px">
-​
         <section class="main-content col-sm-12 col-md-8">
           <div class="top-section">
             <div class="heading-title">
               <h2>Top news</h2>
             </div>
+            <!-- featured article -->
             <article class="featured my-3" id="featured">
               <div class="featured thumbnail"></div>
               <div class="article-details position-relative">
                 <div
-                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
-                <div class="article-title py-3 col-8"></div>
+                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase text-right position-absolute end-0"></div>
+                <div class="article-title col-8 py-3"></div>
                 <div class="row">
                   <div class="col-sm-12 col-md-8">
                     <div class="article-abstract pt-2 pb-3"></div>
                   </div>
                   <div
-                    class="col-sm-12 col-md-4 d-flex flex-column justify-content-start align-items-end pt-2 pb-3">
+                    class="col-sm-12 col-md-4 d-flex flex-column justify-content-start align-items-end pt-2 pb-3 text-end">
                     <div class="by-line"></div>
                     <div class="last-updated"></div>
                   </div>
                 </div>
               </div>
             </article>
+            <!-- end of featured article -->
             <article class="my-4 py-3">
               <div class="d-flex">
                 <div class="flex-shrink-1 me-4">
@@ -111,14 +112,13 @@
                 </div>
                 <div class="article-content w-100 position-relative">
                   <div
-                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
-                  <div class="article-details">
-                    <div class="article-title pt-1 pb-3 col-8"></div>
+                  class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-3">
+                    <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
-​
                     </div>
                   </div>
                 </div>
@@ -131,14 +131,13 @@
                 </div>
                 <div class="article-content w-100 position-relative">
                   <div
-                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase position-absolute top-0 end-0"></div>
-                  <div class="article-details">
-                    <div class="article-title pt-1 pb-3 col-8"></div>
+                  class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-3">
+                    <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
-​
                     </div>
                   </div>
                 </div>
@@ -152,10 +151,37 @@
               <h2>Other news</h2>
             </div>
             <!-- navigational tabs -->
-​
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link me-3 px-3 py-2 rounded-0 text-uppercase active" id="pills-finances-tab" data-bs-toggle="pill" data-bs-target="#pills-finances" type="button" role="tab" aria-controls="pills-finances" aria-selected="true">Finances</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link me-3 px-3 py-2 rounded-0 text-uppercase" id="pills-business-tab" data-bs-toggle="pill" data-bs-target="#pills-business" type="button" role="tab" aria-controls="pills-business" aria-selected="false">Business</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link me-3 px-3 py-2 rounded-0 text-uppercase" id="pills-yourmoney-tab" data-bs-toggle="pill" data-bs-target="#pills-yourmoney" type="button" role="tab" aria-controls="pills-yourmoney" aria-selected="false">Your money</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link me-3 px-3 py-2 rounded-0 text-uppercase" id="pills-stocks-tab" data-bs-toggle="pill" data-bs-target="#pills-stocks" type="button" role="tab" aria-controls="pills-stocks" aria-selected="false">Stocks</button>
+              </li>
+            </ul>
             <!-- end of navigational tabs-->
-            <div class="category-news-render">
-              <div class="row">
+            <div class="category-news tab-content" id="pills-tabContent">
+              <div class="category-news-articles-wrapper tab-pane fade show active" id="pills-finances" role="tabpanel" aria-labelledby="pills-finances-tab" tabindex="0">
+                <div class="row">
+                </div>
+              </div>
+              <div class="category-news-articles-wrapper tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab" tabindex="0">
+                <div class="row">
+                </div>
+              </div>
+              <div class="category-news-articles-wrapper tab-pane fade" id="pills-yourmoney" role="tabpanel" aria-labelledby="pills-yourmoney-tab" tabindex="0">
+                <div class="row">
+                </div>
+              </div>
+              <div class="category-news-articles-wrapper tab-pane fade" id="pills-stocks" role="tabpanel" aria-labelledby="pills-stocks-tab" tabindex="0">
+                <div class="row">
+                </div>
               </div>
             </div>
           <!-- end of category-news -->
@@ -164,7 +190,6 @@
         <aside class="col-sm-12 col-md-4"></aside>
       </div>
     </main>
-​
   <!-- ------------------------------------------------------------------- -->
   <!-- Footer -->
   <!-- ------------------------------------------------------------------- -->
@@ -173,15 +198,13 @@
     <div class="container p-4">
       <div class="row">
         <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">FINFCOUS</h5>
-​
+          <h5 class="text-uppercase">FINFOCUS</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase">Links 1</h5>
-​
           <ul class="list-unstyled mb-0">
             <li>
               <a href="#!" class="text-white">About</a>
@@ -198,9 +221,8 @@
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase mb-0">Links 2</h5>
-​
-          <ul class="list-unstyled">
+          <h5 class="text-uppercase">Links 2</h5>
+          <ul class="list-unstyled mb-0">
             <li>
               <a href="#!" class="text-white">Finance</a>
             </li>
