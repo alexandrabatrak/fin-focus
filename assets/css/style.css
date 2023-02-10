@@ -48,3 +48,12 @@ article:not(.featured) .badge {
   background: var(--accent);
   color: white;
 }
+
+.category-news {
+  min-height: 500px;
+}
+
+.category-news .thumbnail {
+  height: 100px;
+  width: 100px;
+}
