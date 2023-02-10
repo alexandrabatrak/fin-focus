@@ -49,7 +49,6 @@ article:not(.featured) .badge {
   color: white;
 }
 
-
 /* About page */
 
 .column {
@@ -76,9 +75,9 @@ article:not(.featured) .badge {
   margin-top: 10px;
 }
 
-
-.container::after, .row::after {
-  content: "";
+.container::after,
+.row::after {
+  content: '';
   clear: both;
   display: row;
 }
@@ -107,5 +106,5 @@ article:not(.featured) .badge {
   .column {
     width: 100%;
     display: block;
+  }
 }
-
