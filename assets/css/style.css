@@ -50,6 +50,8 @@ article:not(.featured) .badge {
 }
 
 
+/* About page */
+
 .column {
   float: left;
   width: 25%;
@@ -108,5 +110,3 @@ article:not(.featured) .badge {
     display: block;
 }
 
-
- 
