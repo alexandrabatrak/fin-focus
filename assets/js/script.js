@@ -48,7 +48,7 @@ $.ajax({
       $articleElement.find('.badge').text(`${category}`);
       $articleElement.find(
         '.article-title'
-      ).append(`<a href="${articleURL} target="_blank"><h3>
+      ).append(`<a class="stretched-link" href="${articleURL} target="_blank"><h3>
       ${title}</h3></a>`);
       $articleElement.find('.article-abstract').append(`<p>${abstract}</p>`);
       $articleElement.find('.by-line').text(`${byline}`);
