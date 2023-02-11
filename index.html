@@ -5,77 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
       rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link href="./assets/css/style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/f549d17040.js"
+      crossorigin="anonymous"></script>
     <title>Finfocus</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
     <header class="container-fluid bg-black">
-    <!-- ------------------------------------------------------------------- -->
-    <!-- Navbar -->
-    <!-- ------------------------------------------------------------------- -->
-    <div class="container-fluid bg-black">
-      <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
-        <div class="container-fluid">
-          <a class="navbar-brand text-white text-uppercase" href="#"
-            >Finfocus</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active text-white"
-                  aria-current="page"
-                  href="#"
-                  >Finance</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="#">Business</a>
-              </li>
-              <li class="nav-item" href="#">
-                <a class="nav-link text-white" href="#">Entrepreneurs</a>
-              </li>
-              <li class="nav-item" href="#">
-                <a class="nav-link text-white" href="#">Your money</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+      <!-- ------------------------------------------------------------------- -->
+      <!-- Navbar -->
+      <!-- ------------------------------------------------------------------- -->
+      <div class="container-fluid bg-black">
+        <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
+          <div class="container-fluid">
+            <a class="navbar-brand text-white text-uppercase" href="#"
+              >Finfocus</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active text-white"
+                    aria-current="page"
+                    href="#"
+                    >Finance</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Business</a>
+                </li>
+                <li class="nav-item" href="#">
+                  <a class="nav-link text-white" href="#">Entrepreneurs</a>
+                </li>
+                <li class="nav-item" href="#">
+                  <a class="nav-link text-white" href="#">Your money</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search" />
+                <button class="btn btn-outline-success" type="submit">
+                  Search
+                </button>
+              </form>
+            </div>
           </div>
+        </nav>
+      </div>
+      <div class="row mx-auto" style="max-width: 1600px">
+        <div class="swiper">
+          <div class="stock-wrapper swiper-wrapper my-3"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-      </nav>
-      <div class="stock-slider-wrapper">
-        <div style="width: 100%; height: 125px"></div>
       </div>
     </header>
     <main class="container-fluid">
@@ -90,8 +90,8 @@
               <div class="featured thumbnail"></div>
               <div class="article-details position-relative">
                 <div
-                  class="badge category mt-0 p-3 rounded-0 bg-black text-white text-uppercase text-right position-absolute end-0"></div>
-                <div class="article-title col-8 py-3"></div>
+                  class="badge category d-flex mt-0 ms-auto p-3 rounded-0 bg-black text-white text-uppercase"></div>
+                <div class="article-title col-sm-8 py-3"></div>
                 <div class="row">
                   <div class="col-sm-12 col-md-8">
                     <div class="article-abstract pt-2 pb-3"></div>
@@ -112,8 +112,8 @@
                 </div>
                 <div class="article-content w-100 position-relative">
                   <div
-                  class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
-                  <div class="article-details pt-3">
+                    class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
@@ -131,8 +131,8 @@
                 </div>
                 <div class="article-content w-100 position-relative">
                   <div
-                  class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
-                  <div class="article-details pt-3">
+                    class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
                     <div class="d-flex flex-row justify-content-between">
@@ -144,108 +144,172 @@
               </div>
             </article>
           </div>
-          </section>
           <!-- end of top-section -->
-          <section class="category-news">
+          <div class="category-news">
             <div class="heading-title">
               <h2>Other news</h2>
             </div>
             <!-- navigational tabs -->
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link me-3 px-4 rounded-0 text-uppercase active" id="pills-finances-tab" data-bs-toggle="pill" data-bs-target="#pills-finances" type="button" role="tab" aria-controls="pills-finances" aria-selected="true">Finances</button>
+                <button
+                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase active"
+                  id="pills-finances-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-finances"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-finances"
+                  aria-selected="true"
+                  data-category="finances">
+                  Finances
+                </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link me-3 px-4 rounded-0 text-uppercase" id="pills-business-tab" data-bs-toggle="pill" data-bs-target="#pills-business" type="button" role="tab" aria-controls="pills-business" aria-selected="false">Business</button>
+                <button
+                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  id="pills-business-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-business"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-business"
+                  aria-selected="false"
+                  data-category="business">
+                  Business
+                </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link me-3 px-4 rounded-0 text-uppercase" id="pills-yourmoney-tab" data-bs-toggle="pill" data-bs-target="#pills-yourmoney" type="button" role="tab" aria-controls="pills-yourmoney" aria-selected="false">Your money</button>
+                <button
+                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  id="pills-yourmoney-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-yourmoney"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-yourmoney"
+                  aria-selected="false"
+                  data-category="yourmoney">
+                  Your money
+                </button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link me-3 px-4 rounded-0 text-uppercase" id="pills-stocks-tab" data-bs-toggle="pill" data-bs-target="#pills-stocks" type="button" role="tab" aria-controls="pills-stocks" aria-selected="false">Stocks</button>
+                <button
+                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  id="pills-stocks-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-stocks"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-stocks"
+                  aria-selected="false"
+                  data-category="stocks">
+                  Stocks
+                </button>
               </li>
             </ul>
             <!-- end of navigational tabs-->
-            <div class="category-news tab-content" id="pills-tabContent">
-              <div class="category-news-articles-wrapper tab-pane fade show active" id="pills-finances" role="tabpanel" aria-labelledby="pills-finances-tab" tabindex="0">
-                <div class="row">
-                </div>
+            <div class="category-news tab-content mb-5" id="pills-tabContent">
+              <div
+                class="category-news-articles-wrapper tab-pane fade show active"
+                id="pills-finances"
+                role="tabpanel"
+                aria-labelledby="pills-finances-tab"
+                tabindex="0"
+                data-category="finances">
+                <div class="row"></div>
               </div>
-              <div class="category-news-articles-wrapper tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab" tabindex="0">
-                <div class="row">
-                </div>
+              <div
+                class="category-news-articles-wrapper tab-pane fade"
+                id="pills-business"
+                role="tabpanel"
+                aria-labelledby="pills-business-tab"
+                tabindex="0"
+                data-category="business">
+                <div class="row"></div>
               </div>
-              <div class="category-news-articles-wrapper tab-pane fade" id="pills-yourmoney" role="tabpanel" aria-labelledby="pills-yourmoney-tab" tabindex="0">
-                <div class="row">
-                </div>
+              <div
+                class="category-news-articles-wrapper tab-pane fade"
+                id="pills-yourmoney"
+                role="tabpanel"
+                aria-labelledby="pills-yourmoney-tab"
+                tabindex="0"
+                data-category="yourmoney">
+                <div class="row"></div>
               </div>
-              <div class="category-news-articles-wrapper tab-pane fade" id="pills-stocks" role="tabpanel" aria-labelledby="pills-stocks-tab" tabindex="0">
-                <div class="row">
-                </div>
+              <div
+                class="category-news-articles-wrapper tab-pane fade"
+                id="pills-stocks"
+                role="tabpanel"
+                aria-labelledby="pills-stocks-tab"
+                tabindex="0"
+                data-category="stocks">
+                <div class="row"></div>
+              </div>
+            </div>
+          </div>
           <!-- end of category-news -->
+          <!-- end of section main-content -->
+          <aside class="col-sm-12 col-md-4"></aside>
         </section>
-        <!-- end of section main-content -->
-        <aside class="col-sm-12 col-md-4"></aside>
       </div>
     </main>
-  <!-- ------------------------------------------------------------------- -->
-  <!-- Footer -->
-  <!-- ------------------------------------------------------------------- -->
-  <section class="">
-  <footer class="bg-dark text-white">
-    <div class="container p-4">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <h5 class="text-uppercase">FINFOCUS</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </p>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links 1</h5>
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="\about.html" class="text-white">About</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Terms & Conditions</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Contact us</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="text-uppercase">Links 2</h5>
-          <ul class="list-unstyled mb-0">
-            <li>
-              <a href="#!" class="text-white">Finance</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Buisness</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Entrepreneurs</a>
-            </li>
-            <li>
-              <a href="#!" class="text-white">Your money</a>
-            </li>
-          </ul>
+    <!-- ------------------------------------------------------------------- -->
+    <!-- Footer -->
+    <!-- ------------------------------------------------------------------- -->
+    <footer class="bg-dark text-white">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">FINFOCUS</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links 1</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">About</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Terms & Conditions</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links 2</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Finance</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Buisness</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Entrepreneurs</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Your money</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1);">
-      <p>LOST MARY © 2022</p>
-    </div>
-  </footer>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1)">
+        <p>LOST MARY © 2022</p>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
