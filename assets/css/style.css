@@ -1,18 +1,45 @@
 :root {
   --light: rgb(221, 221, 221);
   --black: rgb(0, 0, 0);
-  --accent: rgb(195 1 1);
+  --accent: rgb(3, 41, 210);
+  --green: green;
+  --red: red;
 }
 
+/*====================
+*
+* HOME PAGE 
+* 
+======================*/
+
+/* stock bar */
+
+.stock-wrapper {
+  color: white;
+}
+
+.swiper-slide {
+  min-width: 200px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.stock-wrapper .high,
+.fa-solid.fa-arrow-trend-up {
+  color: var(--green);
+}
+
+.stock-wrapper .low,
+.fa-solid.fa-arrow-trend-down {
+  color: var(--red);
+}
+
+/* Top News section */
 .top-section article:not(.featured) .article-content {
   min-height: 240px;
-}
-
-.thumbnail img,
-.featured.thumbnail img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
 }
 
 .thumbnail {
@@ -25,17 +52,29 @@
   width: 100%;
 }
 
+.thumbnail img,
+.featured.thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 article .badge {
-  letter-spacing: 6px;
-  font-size: 1rem;
+  width: fit-content;
+  letter-spacing: 5px;
   font-weight: normal;
 }
 
-article:not(.featured) .badge {
+.top-section article .badge {
+  font-size: 1rem;
+}
+
+.top-section article:not(.featured) .badge {
   left: -1.5rem;
   background: var(--accent) !important;
 }
 
+/* Financial news */
 .category-news .nav-pills .nav-link {
   background: var(--light);
   color: var(--black);
@@ -54,12 +93,30 @@ article:not(.featured) .badge {
 }
 
 .category-news .thumbnail {
-  height: 100px;
-  width: 100px;
+  max-width: 30%;
 }
 
-/* About page */
+.category-news .thumbnail-bg {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.category-news .badge {
+  left: -1rem;
+  background: var(--black);
+  padding: 0.5rem 1rem;
+}
+
+/*====================
+*
+* ABOUT PAGE 
+* 
+======================*/
+
+/* Out team */
 .column {
   float: left;
   width: 25%;
@@ -88,7 +145,7 @@ article:not(.featured) .badge {
 .row::after {
   content: '';
   clear: both;
-  display: row;
+  /* display: row; */
 }
 
 .title {
@@ -111,9 +168,22 @@ article:not(.featured) .badge {
   background-color: #555;
 }
 
-@media screen and (max-width: 650px) {
+/*====================
+*
+* MEDIA QUERIES
+* 
+======================*/
+@media (max-width: 650px) {
+  /* about page */
   .column {
     width: 100%;
     display: block;
+  }
+}
+
+@media (min-width: 576px) {
+  .top-section article .badge {
+    position: absolute;
+    right: 0;
   }
 }
