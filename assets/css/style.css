@@ -64,8 +64,9 @@ article:not(.featured) .badge {
 
 .about-section {
   padding: 25px;
+  margin-bottom: 25px;
   text-align: center;
-  background-color: #474e5d;
+  /* background-color: #474e5d; */
   color: white;
 }
 
