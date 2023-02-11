@@ -168,7 +168,25 @@ article .badge {
 .button:hover {
   background-color: #555;
 }
-
+/* Background image */
+.masthead {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.masthead h1 {
+  font-size: 7rem;
+}
+.color-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
 /*====================
 *
 * MEDIA QUERIES
@@ -186,5 +204,13 @@ article .badge {
   .top-section article .badge {
     position: absolute;
     right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .masthead {
+    min-height: 50vh;
+  }
+  .masthead h1 {
+    font-size: calc(2.5rem + 3.3vw)
   }
 }
