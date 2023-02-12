@@ -1,64 +1,79 @@
 API_KEY_NT = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
-let topStories = `https://api.nytimes.com/svc/topstories/v2/business.json?api-key=${API_KEY_NT}`;
+let section, articles;
 
-$.ajax({
-  url: topStories,
-  method: 'GET',
-})
-  .then(function (resp) {
-    let results = resp.results;
-    // filter results by business only
-    let business = results.filter((results) => {
-      return results.section.includes('business');
-    });
+let render = () => {
+  section = $('section[data-section="business"]')
+    ? 'business'
+    : $('section[data-section="politics"]')
+    ? 'politics'
+    : $('section[data-section="world"]')
+    ? 'world'
+    : 'home';
+  renderTopArtcilesSections(section);
+};
+render();
 
-    // then add to the rest
-    const articles = $('.top-section article');
-    const featuredArticle = business[0];
+function renderTopArtcilesSections(section) {
+  let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY_NT}`;
 
-    updateArticleContent(featuredArticle, $(articles[0]));
+  $.ajax({
+    url: ny,
+    method: 'GET',
+  })
+    .then(function (resp) {
+      let results = resp.results;
+      // filter results by categories
+      // let business = results.filter((results) => {
+      //   return results.section.includes('business');
+      // });
 
-    for (let i = 1; i < articles.length; i++) {
-      let article = business[i];
-      updateArticleContent(article, $(articles[i]));
-    }
-    function updateArticleContent(article, $articleElement) {
-      // TODO: make a whole article link? or think of how to do it best
-      let largeThumnail = article.multimedia[0];
-      let thumbnail = article.multimedia[1];
-      // articleThumbnailAlt = articleThumbnail.caption;
-      let category = article.section;
-      let subcategory = article.subsection; // not all articles have
-      let title = article.title;
-      let articleURL = article.short_url;
-      let abstract = article.abstract;
-      let tags = article.des_facet; // array
-      let geo = article.geo_facet; // not all of them have
-      let byline = article.byline;
-      let publishedDate = moment(article.published_date).format('LL');
-      let updatedDate = moment(article.updated_date).format('LL');
+      // then add to the rest
+      const articles = $('.top-section article');
+      const featuredArticle = results[0];
 
-      $articleElement.find('.thumbnail').append(`
+      updateArticleContent(featuredArticle, $(articles[0]));
+
+      for (let i = 1; i < articles.length; i++) {
+        let article = results[i];
+        updateArticleContent(article, $(articles[i]));
+      }
+
+      function updateArticleContent(article, $articleElement) {
+        let largeThumnail = article.multimedia[0];
+        let thumbnail = article.multimedia[1];
+        // articleThumbnailAlt = articleThumbnail.caption;
+        let category = article.section;
+        let subcategory = article.subsection; // not all articles have
+        let title = article.title;
+        let articleURL = article.url;
+        let abstract = article.abstract;
+        let tags = article.des_facet; // array
+        let geo = article.geo_facet; // not all of them have
+        let byline = article.byline;
+        let publishedDate = moment(article.published_date).format('LL');
+        let updatedDate = moment(article.updated_date).format('LL');
+
+        $articleElement.find('.thumbnail').append(`
         <img src="${
           $articleElement.hasClass('featured')
             ? largeThumnail.url
             : thumbnail.url
         }" alt="${$articleElement.hasClass('featured') ? largeThumnail.caption : thumbnail.caption}"/>
       `);
-      $articleElement.find('.badge').text(`${category}`);
-      $articleElement.find(
-        '.article-title'
-      ).append(`<a class="stretched-link" href="${articleURL} target="_blank"><h3>
+        $articleElement.find('.badge').text(`${category}`);
+        $articleElement.find(
+          '.article-title'
+        ).append(`<a class="stretched-link" href="${articleURL} target="_blank"><h3>
       ${title}</h3></a>`);
-      $articleElement.find('.article-abstract').append(`<p>${abstract}</p>`);
-      $articleElement.find('.by-line').text(`${byline}`);
-      $articleElement
-        .find('.last-updated')
-        .append(`<span>Published on</span> ${publishedDate}`);
-    }
-  })
-  .catch((err) => console.log(err));
-
+        $articleElement.find('.article-abstract').append(`<p>${abstract}</p>`);
+        $articleElement.find('.by-line').text(`${byline}`);
+        $articleElement
+          .find('.last-updated')
+          .append(`<span>Published on</span> ${publishedDate}`);
+      }
+    })
+    .catch((err) => console.log(err));
+}
 // TODO: display full list of top news on the aside bar
 
 // query for search and tabs
@@ -184,7 +199,6 @@ $.ajax({
       let volumeAverage = popularStock[i].vw;
       let difference = (close - open).toFixed(2);
       let differencePercent = ((difference / volumeAverage) * 100).toFixed(2);
-      console.log(difference);
 
       // $.ajax({
       //   url: tickerCoder,
@@ -201,22 +215,22 @@ $.ajax({
               <span
                 ><i
                   class="fa-solid fa-arrow-trend-${
-                    difference > 0 ? 'up' : 'down'
+                    difference >= 0 ? 'up' : 'down'
                   } fa-2x"
                   aria-hidden="true"
-                  title="Trend ${difference > 0 ? 'up' : 'down'}"></i
+                  title="Trend ${difference >= 0 ? 'up' : 'down'}"></i
               ></span>
             </div>
             <div class="d-flex flex-row justify-content-between">
               <div class="price me-2">
                 <span class="fw-bold">${volumeAverage}</span>
               </div>
-              <div class="difference">
+              <div class="difference d-flex flex-nowrap">
                 <span class="difference-value ${
-                  difference > 0 ? 'high' : 'low'
+                  difference >= 0 ? 'high' : 'low'
                 }">${difference}</span>
                 <span class="difference-percent ${
-                  difference > 0 ? 'high' : 'low'
+                  difference >= 0 ? 'high' : 'low'
                 }">(${differencePercent}%)</span>
               </div>
             </div>
