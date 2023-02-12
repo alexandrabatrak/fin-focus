@@ -1,4 +1,4 @@
-API_KEY = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
+const API_KEY_NT = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
 let section, articles;
 const sections = ['business', 'technology', 'politics', 'world'];
 
@@ -10,7 +10,7 @@ sections.forEach((section) => {
 
 function renderTopArtcilesSections(section) {
   console.log(section);
-  let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY}`;
+  let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY_NT}`;
 
   $.ajax({
     url: ny,
@@ -74,6 +74,14 @@ function renderTopArtcilesSections(section) {
 // TODO: Better UI - Add accordeon options so only few articles are shown in the group - generally the design isn't the best as it is
 let categoryNews = $('.category-news-articles-wrapper');
 let keywords = $('.category-news .nav').find('.category-tab').data('category');
+let newsDesk = [
+  'Business',
+  'Your Money',
+  'Entrepreneurs',
+  'Finance',
+  'Business day',
+  'SundayBusiness',
+];
 searchNews(keywords);
 $('.category-news').on('click', '.nav-item button', function () {
   keywords = $(this).attr('data-category');
@@ -84,7 +92,7 @@ $('.category-news').on('click', '.nav-item button', function () {
 function searchNews(keywords) {
   let startDate = moment('1980').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
-  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY}`;
+  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
   $.ajax({
     url: searchArticles,
@@ -108,7 +116,7 @@ function searchNews(keywords) {
           return $(this).data('category') === keywords;
         });
         categoryNews.find('.row').append(
-          `<div class="col-xl-12 col-xxl-6 pe-3 mb-3">
+          `<div class="col-md-12 col-lg-6 pe-3 mb-3">
           <article class="w-100">
             <div class="article-content">
               <div class="article-header d-flex mb-3">
