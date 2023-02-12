@@ -90,7 +90,7 @@ $('.category-news').on('click', '.nav-item button', function () {
 });
 
 function searchNews(keywords) {
-  let startDate = moment('1980').format('YYYYMMDD');
+  let startDate = moment('2019').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
   let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
@@ -116,24 +116,22 @@ function searchNews(keywords) {
           return $(this).data('category') === keywords;
         });
         categoryNews.find('.row').append(
-          `<div class="col-md-12 col-lg-6 pe-3 mb-3">
+          `<div class="pe-3 mb-5">
           <article class="w-100">
-            <div class="article-content">
-              <div class="article-header d-flex mb-3">
-                <div class="thumbnail me-3">
-                  <div class="thumbnail-bg" style="background-image: url(${thumbnail})"></div>
-                </div>
-                <div class="article-title">
-                    <div
-                    class="badge category mt-0 rounded-0 text-white text-uppercase text-right position-relative bottom-0">
-                    ${category}</div>
-                    <h4 class="pt-3">${title}</h4>
-                    <div class="by-line">${byline}</div>
-                    <div class="published"><span>Published on </span>${publishedDate}</div>
-                </div>
+            <div class="article-content d-flex flex-column flex-md-row">
+              <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
+                <div class="thumbnail-bg" style="background-image: url(${thumbnail})"></div>
+                <div
+                  class="badge category mt-0 rounded-0 text-white text-uppercase text-right position-absolute bottom-0 end-0">
+                  ${category}</div>
               </div>
-              <div class="article-details d-flex flex-column justify-content-between">
-                <div class="article-abstract">
+              <div class="article-details col-sm-12 col-md-8">
+                <div class="article-title mb-3">
+                  <h3 class="pb-3">${title}</h3>
+                  <div class="by-line">${byline}</div>
+                  <div class="published"><span>Published on </span>${publishedDate}</div>
+                </div>
+                <div class="article-abstract mb-3">
                   <h5>${abstract}</h5>
                 </div>
                 <div class="article-lead">
@@ -152,10 +150,14 @@ function searchNews(keywords) {
 }
 
 // height of the thumbnail
-let thumbnailHeight = function () {
-  $('.thumbnail-bg').each(function () {
-    $(this).css({
-      height: `${$(this).closest('.article-header').outerHeight(true)}px`,
-    });
-  });
-};
+// let thumbnailHeight = function () {
+//   $('.thumbnail-bg').each(function () {
+//     if (window.matchMedia('(min-width: 768px)').matches) {
+//       $(this).css({
+//         height: `${$(this).closest('article').outerHeight(true)}px`,
+//       });
+//     } else {
+//       $(this).css({ height: '100px' });
+//     }
+//   });
+// };
