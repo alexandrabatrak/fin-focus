@@ -5,7 +5,9 @@
   --green: green;
   --red: red;
 
-  --serif: 'Amiri', serif;
+  /* --serif: 'Amiri', serif; */
+  /* --serif: 'Bellfair', serif; */
+  --serif: 'Gilda Display', serif;
   --sans: 'Open Sans', sans-serif;
 
   --swiper-navigation-size: 1.5rem;
@@ -238,6 +240,6 @@ article .badge {
     min-height: 50vh;
   }
   .masthead h1 {
-    font-size: calc(2.5rem + 3.3vw)
+    font-size: calc(2.5rem + 3.3vw);
   }
 }
