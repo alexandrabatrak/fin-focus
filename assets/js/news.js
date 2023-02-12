@@ -84,7 +84,7 @@ $('.category-news').on('click', '.nav-item button', function () {
 function searchNews(keywords) {
   let startDate = moment('1980').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
-  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
+  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY}`;
 
   $.ajax({
     url: searchArticles,

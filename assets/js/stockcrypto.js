@@ -83,8 +83,8 @@ $.ajax({
 
 let crypto = 'BTC';
 let currency = 'USD';
-// let cryptoQuery = `https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/${yesterday}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
-let cryptoQuery = `https://api.polygon.io/v1/open-close/crypto/${crypto}/${currency}/${today}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
+// let cryptoQuery = `https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/${yesterday}?adjusted=true&apiKey=${API_KEY}`;
+let cryptoQuery = `https://api.polygon.io/v1/open-close/crypto/${crypto}/${currency}/${today}?adjusted=true&apiKey=${API_KEY}`;
 
 // $.ajax({
 //   url: cryptoQuery,
