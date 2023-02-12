@@ -46,18 +46,20 @@
                   <a
                     class="nav-link active text-white"
                     aria-current="page"
-                    href="#"
-                    >Finance</a
+                    href="#financial"
+                    >Finances</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Business</a>
+                  <a class="nav-link text-white" href="#technology"
+                    >Technology</a
+                  >
                 </li>
                 <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#">Entrepreneurs</a>
+                  <a class="nav-link text-white" href="#politics">Politics</a>
                 </li>
                 <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#">Your money</a>
+                  <a class="nav-link text-white" href="#world">World</a>
                 </li>
               </ul>
               <form class="d-flex" role="search">
@@ -84,8 +86,8 @@
     </header>
     <main class="container-fluid">
       <div class="row mx-auto mt-5" style="max-width: 1600px">
-        <div class="main-content col-sm-12 col-md-8">
-          <section class="top-section" data-section="business">
+        <div class="col-sm-12 col-md-8">
+          <section id="financial" class="top-section" data-section="business">
             <div class="heading-title">
               <h2>Top news</h2>
             </div>
@@ -148,112 +150,184 @@
               </div>
             </article>
           </section>
-          <!-- end of top-section -->
-          <section class="category-news mt-5">
-            <div class="heading-title py-3">
-              <h2>Financial</h2>
-            </div>
-            <!-- navigational tabs -->
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase active"
-                  id="pills-finances-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-finances"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-finances"
-                  aria-selected="true"
-                  data-category="finances">
-                  Finances
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-business-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-business"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-business"
-                  aria-selected="false"
-                  data-category="business">
-                  Business
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-yourmoney-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-yourmoney"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-yourmoney"
-                  aria-selected="false"
-                  data-category="yourmoney">
-                  Your money
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-stocks-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-stocks"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-stocks"
-                  aria-selected="false"
-                  data-category="stocks">
-                  Stocks
-                </button>
-              </li>
-            </ul>
-            <!-- end of navigational tabs-->
-            <div class="category-news tab-content mb-5" id="pills-tabContent">
-              <div
-                class="category-news-articles-wrapper tab-pane fade show active"
-                id="pills-finances"
-                role="tabpanel"
-                aria-labelledby="pills-finances-tab"
-                tabindex="0"
+        </div>
+        <!-- end of col-sm-12 col-md-8-->
+        <!-- end of top-section -->
+        <section class="category-news mt-5">
+          <div class="heading-title py-3">
+            <h2>Financial</h2>
+          </div>
+          <!-- navigational tabs -->
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase active"
+                id="pills-finances-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-finances"
+                type="button"
+                role="tab"
+                aria-controls="pills-finances"
+                aria-selected="true"
                 data-category="finances">
-                <div class="row"></div>
-              </div>
-              <div
-                class="category-news-articles-wrapper tab-pane fade"
-                id="pills-business"
-                role="tabpanel"
-                aria-labelledby="pills-business-tab"
-                tabindex="0"
+                Finances
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                id="pills-business-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-business"
+                type="button"
+                role="tab"
+                aria-controls="pills-business"
+                aria-selected="false"
                 data-category="business">
-                <div class="row"></div>
-              </div>
-              <div
-                class="category-news-articles-wrapper tab-pane fade"
-                id="pills-yourmoney"
-                role="tabpanel"
-                aria-labelledby="pills-yourmoney-tab"
-                tabindex="0"
+                Business
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                id="pills-yourmoney-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-yourmoney"
+                type="button"
+                role="tab"
+                aria-controls="pills-yourmoney"
+                aria-selected="false"
                 data-category="yourmoney">
-                <div class="row"></div>
-              </div>
-              <div
-                class="category-news-articles-wrapper tab-pane fade"
-                id="pills-stocks"
-                role="tabpanel"
-                aria-labelledby="pills-stocks-tab"
-                tabindex="0"
+                Your money
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                id="pills-stocks-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-stocks"
+                type="button"
+                role="tab"
+                aria-controls="pills-stocks"
+                aria-selected="false"
                 data-category="stocks">
-                <div class="row"></div>
-              </div>
+                Stocks
+              </button>
+            </li>
+          </ul>
+          <!-- end of navigational tabs-->
+          <div class="category-news tab-content mb-5" id="pills-tabContent">
+            <div
+              class="category-news-articles-wrapper tab-pane fade show active"
+              id="pills-finances"
+              role="tabpanel"
+              aria-labelledby="pills-finances-tab"
+              tabindex="0"
+              data-category="finances">
+              <div class="row"></div>
             </div>
+            <div
+              class="category-news-articles-wrapper tab-pane fade"
+              id="pills-business"
+              role="tabpanel"
+              aria-labelledby="pills-business-tab"
+              tabindex="0"
+              data-category="business">
+              <div class="row"></div>
+            </div>
+            <div
+              class="category-news-articles-wrapper tab-pane fade"
+              id="pills-yourmoney"
+              role="tabpanel"
+              aria-labelledby="pills-yourmoney-tab"
+              tabindex="0"
+              data-category="yourmoney">
+              <div class="row"></div>
+            </div>
+            <div
+              class="category-news-articles-wrapper tab-pane fade"
+              id="pills-stocks"
+              role="tabpanel"
+              aria-labelledby="pills-stocks-tab"
+              tabindex="0"
+              data-category="stocks">
+              <div class="row"></div>
+            </div>
+          </div>
+        </section>
+        <!-- end of category-news -->
+        <div class="col-sm-12 col-md-8">
+          <section
+            id="technology"
+            class="top-section technology-news"
+            data-section="technology">
+            <div class="heading-title py-3">
+              <h2>Technology</h2>
+            </div>
+            <!-- featured article -->
+            <article class="featured my-3" id="featured">
+              <div class="featured thumbnail"></div>
+              <div class="article-details position-relative">
+                <div
+                  class="badge category d-flex mt-0 ms-auto p-3 rounded-0 bg-black text-white text-uppercase"></div>
+                <div class="article-title col-sm-8 py-3"></div>
+                <div class="row">
+                  <div class="col-sm-12 col-md-8">
+                    <div class="article-abstract pt-2 pb-3"></div>
+                  </div>
+                  <div
+                    class="col-sm-12 col-md-4 d-flex flex-column justify-content-start align-items-end pt-2 pb-3 text-end">
+                    <div class="by-line"></div>
+                    <div class="last-updated"></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <!-- end of featured article -->
+            <article class="my-4 py-3">
+              <div class="d-flex">
+                <div class="flex-shrink-1 me-4">
+                  <div class="thumbnail"></div>
+                </div>
+                <div class="article-content w-100 position-relative">
+                  <div
+                    class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-4">
+                    <div class="article-title pt-1 pb-3"></div>
+                    <div class="article-abstract"></div>
+                    <div class="d-flex flex-row justify-content-between">
+                      <div class="by-line"></div>
+                      <div class="last-updated"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="my-4 py-3">
+              <div class="d-flex">
+                <div class="flex-shrink-1 me-4">
+                  <div class="thumbnail"></div>
+                </div>
+                <div class="article-content w-100 position-relative">
+                  <div
+                    class="badge category mt-0 p-3 rounded-0 text-white text-uppercase text-right position-relative bottom-0"></div>
+                  <div class="article-details pt-4">
+                    <div class="article-title pt-1 pb-3"></div>
+                    <div class="article-abstract"></div>
+                    <div class="d-flex flex-row justify-content-between">
+                      <div class="by-line"></div>
+                      <div class="last-updated"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
           </section>
-          <!-- end of category-news -->
-          <section class="top-section politics-news" data-section="politics">
+          <section
+            id="politics"
+            class="top-section politics-news"
+            data-section="politics">
             <div class="heading-title py-3">
               <h2>Politics</h2>
             </div>
@@ -316,7 +390,10 @@
               </div>
             </article>
           </section>
-          <section class="top-section world-news" data-section="world">
+          <section
+            id="world"
+            class="top-section world-news"
+            data-section="world">
             <div class="heading-title py-3">
               <h2>World</h2>
             </div>
@@ -380,7 +457,6 @@
             </article>
           </section>
           <!-- end of section main-content -->
-          <aside class="col-sm-12 col-md-4"></aside>
         </div>
       </div>
     </main>
@@ -441,6 +517,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="./assets/js/stockcrypto.js" async></script>
+    <script src="./assets/js/news.js" async></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
