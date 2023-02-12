@@ -4,6 +4,25 @@
   --accent: rgb(3, 41, 210);
   --green: green;
   --red: red;
+
+  /* --serif: 'Amiri', serif; */
+  /* --serif: 'Bellfair', serif; */
+  --serif: 'Gilda Display', serif;
+  --sans: 'Open Sans', sans-serif;
+
+  --swiper-navigation-size: 1.5rem;
+}
+
+body {
+  font-family: var(--sans);
+}
+
+.navbar-brand,
+.navbar-nav a,
+.badge, 
+.category-tab.nav-link
+/* + footer elements */ {
+  font-family: var(--serif);
 }
 
 /*====================
@@ -11,6 +30,16 @@
 * HOME PAGE 
 * 
 ======================*/
+
+/* navbar */
+.navbar-brand {
+  letter-spacing: 10px;
+}
+
+.navbar-nav a,
+.badge {
+  letter-spacing: 3px;
+}
 
 /* stock bar */
 
@@ -38,6 +67,10 @@
 }
 
 /* Top News section */
+.article-title a {
+  text-decoration: none;
+  color: var(--black);
+}
 .top-section article:not(.featured) .article-content {
   min-height: 240px;
 }
@@ -62,11 +95,8 @@
 article .badge {
   width: fit-content;
   letter-spacing: 5px;
+  font-size: 0.89rem;
   font-weight: normal;
-}
-
-.top-section article .badge {
-  font-size: 1rem;
 }
 
 .top-section article:not(.featured) .badge {
@@ -80,7 +110,6 @@ article .badge {
   color: var(--black);
   letter-spacing: 2px;
   padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 
 .category-news .nav-pills .nav-link.active {
@@ -211,6 +240,6 @@ article .badge {
     min-height: 50vh;
   }
   .masthead h1 {
-    font-size: calc(2.5rem + 3.3vw)
+    font-size: calc(2.5rem + 3.3vw);
   }
 }
