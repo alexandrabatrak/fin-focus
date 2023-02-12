@@ -276,11 +276,11 @@ article .badge {
   }
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   aside .container {
     position: fixed;
   }
-}
+} */
 
 @media (max-width: 767.9999px) {
   .masthead {
