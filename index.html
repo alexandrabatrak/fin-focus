@@ -20,75 +20,92 @@
     <title>Finfocus</title>
   </head>
   <body>
-    <header class="container-fluid bg-black">
+    <header class="container-fluid">
       <!-- ------------------------------------------------------------------- -->
       <!-- Navbar -->
       <!-- ------------------------------------------------------------------- -->
-      <div class="container-fluid bg-black">
-        <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
-          <div class="container-fluid">
-            <a class="navbar-brand text-white text-uppercase" href="#"
-              >Finfocus</a
-            >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 text-uppercase">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active text-white"
-                    aria-current="page"
-                    href="#financial"
-                    >Finances</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#technology"
-                    >Technology</a
-                  >
-                </li>
-                <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#politics">Politics</a>
-                </li>
-                <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#world">World</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
+      <div class="row">
+        <div class="container-fluid bg-black">
+          <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white text-uppercase" href="#"
+                >Finfocus</a
+              >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 text-uppercase">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active text-white"
+                      aria-current="page"
+                      href="#financial"
+                      >Finances</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="#technology"
+                      >Technology</a
+                    >
+                  </li>
+                  <li class="nav-item" href="#">
+                    <a class="nav-link text-white" href="#politics">Politics</a>
+                  </li>
+                  <li class="nav-item" href="#">
+                    <a class="nav-link text-white" href="#world">World</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
-      <div class="row mx-auto" style="max-width: 1600px">
-        <div class="swiper">
-          <div class="stock-wrapper swiper-wrapper my-3"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+          </nav>
         </div>
+        <div class="row mx-auto" style="max-width: 1600px">
+          <div class="swiper">
+            <div class="stock-wrapper swiper-wrapper"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end align-items-baseline">
+        <div id="today-date" class="today-date me-5"></div>
+        <div id="weather" class="today-weather me-5"></div>
       </div>
     </header>
     <main class="container-fluid">
-      <div class="row mx-auto mt-5" style="max-width: 1600px">
-        <div class="main-content col-sm-12 col-md-8">
+      <div class="row mx-auto mt-5 flex-row-reverse" style="max-width: 1600px">
+        <aside class="col-md-12 col-lg-4 px-3">
+          <div class="container">
+            <div class="crypto-wrapper position-relative">
+              <h3>Top crypto/USD today</h3>
+              <div id="top-crypto" class="swiper-crypto">
+                <div class="crypto-wrapper swiper-wrapper my-3"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <div class="main-content col-md-12 col-lg-8">
           <section id="financial" class="top-section" data-section="business">
-            <div class="heading-title">
+            <div class="heading-title py-3">
               <h2>Top news</h2>
             </div>
             <!-- featured article -->
@@ -156,10 +173,10 @@
               <h2>Financial</h2>
             </div>
             <!-- navigational tabs -->
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
               <li class="nav-item" role="presentation">
                 <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase active"
+                  class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase active"
                   id="pills-finances-tab"
                   data-bs-toggle="pill"
                   data-bs-target="#pills-finances"
@@ -173,7 +190,7 @@
               </li>
               <li class="nav-item" role="presentation">
                 <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
                   id="pills-business-tab"
                   data-bs-toggle="pill"
                   data-bs-target="#pills-business"
@@ -187,7 +204,7 @@
               </li>
               <li class="nav-item" role="presentation">
                 <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
                   id="pills-yourmoney-tab"
                   data-bs-toggle="pill"
                   data-bs-target="#pills-yourmoney"
@@ -201,7 +218,7 @@
               </li>
               <li class="nav-item" role="presentation">
                 <button
-                  class="category-tab nav-link me-3 px-4 rounded-0 text-uppercase"
+                  class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
                   id="pills-stocks-tab"
                   data-bs-toggle="pill"
                   data-bs-target="#pills-stocks"
@@ -455,10 +472,6 @@
           </section>
         </div>
         <!-- end of main-content-->
-        <aside class="col-sm-12 col-md-4">
-          <div id="todayDate" class="todayDate"></div>
-          <div id="weather" class="todayWeather"></div>
-        </aside>
       </div>
     </main>
     <!-- ------------------------------------------------------------------- -->
