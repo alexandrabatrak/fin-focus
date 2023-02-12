@@ -15,9 +15,8 @@ function stocksRender() {
     method: 'GET',
   })
     .then(function (resp) {
-      // TODO: sort resp before query
       let results = resp.results;
-
+      // sort by top trading volume
       let popularStock = results.sort(function (a, b) {
         return b.v - a.v;
       });
@@ -38,8 +37,9 @@ function stocksRender() {
         // let tradingVolume = popularStock[i].v;
         // The volume weighted average price.
         let volumeAverage = popularStock[i].vw;
-        let difference = (close - open).toFixed(2);
-        let differencePercent = ((difference / volumeAverage) * 100).toFixed(2);
+        let difference = close - open;
+        // don't know how to best calculate this shit
+        let differencePercent = (difference / open) * 100;
 
         // $.ajax({
         //   url: tickerCoder,
@@ -69,10 +69,10 @@ function stocksRender() {
               <div class="difference d-flex flex-nowrap">
                 <span class="difference-value ${
                   difference >= 0 ? 'high' : 'low'
-                }">${difference}</span>
+                }">${difference.toFixed(2)}</span>
                 <span class="difference-percent ${
                   difference >= 0 ? 'high' : 'low'
-                }">(${differencePercent}%)</span>
+                }">(${differencePercent.toFixed(2)}%)</span>
               </div>
             </div>
           </div>
@@ -82,8 +82,8 @@ function stocksRender() {
     })
     .catch((err) => console.log(err));
 }
-let crypto = 'BTC';
-let currency = 'USD';
+stocksRender();
+
 let cryptoQuery = `https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/${yesterday}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
 // let cryptoQuery = `https://api.polygon.io/v1/open-close/crypto/${crypto}/${currency}/${today}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
 
@@ -93,5 +93,55 @@ $.ajax({
 })
   .then(function (resp) {
     console.log(resp);
+    let results = resp.results;
+    let topCrypto = results.sort(function (a, b) {
+      return b.v - a.v;
+    });
+    topCrypto = topCrypto.slice(0, 20);
+    for (let i = 0; i < topCrypto.length; i++) {
+      let ticker = topCrypto[i].T.replace('X:', '').replace('USD', '');
+      let open = topCrypto[i].o;
+      let close = topCrypto[i].c;
+      // let high = topCrypto[i].h;
+      // let low = topCrypto[i].l;
+      //The number of transactions in the aggregate window.
+      let transactionsNumber = topCrypto[i].n;
+      // The trading volume of the symbol in the given time period.
+      // The volume weighted average price.
+      let volumeAverage = topCrypto[i].vw;
+      let difference = close - open;
+      let differencePercent = (difference / open) * 100;
+
+      $('#top-crypto .crypto-wrapper').append(
+        `<div class="swiper-slide" role="group">
+          <div class="crypto-item px-5 py-3">
+              <div class="d-flex flex-row justify-content-between">
+                <h5>${ticker}</h5>
+                <span
+                  ><i
+                    class="fa-solid fa-arrow-trend-${
+                      difference >= 0 ? 'up' : 'down'
+                    } fa-2x"
+                    aria-hidden="true"
+                    title="Trend ${difference >= 0 ? 'up' : 'down'}"></i
+                ></span>
+              </div>
+              <div class="d-flex flex-column">
+                <div class="price me-2">
+                  <span class="fw-bold">${close}</span>
+                </div>
+                <div class="difference d-flex flex-row">
+                  <span class="difference-value ${
+                    difference >= 0 ? 'high' : 'low'
+                  }">${difference.toFixed(6)}</span>
+                  <span class="difference-percent ${
+                    difference >= 0 ? 'high' : 'low'
+                  }">(${differencePercent.toFixed(2)}%)</span>
+                </div>
+              </div>
+            </div>
+          </div>`
+      );
+    }
   })
   .catch((err) => console.log(err));
