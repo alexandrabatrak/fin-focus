@@ -1,19 +1,25 @@
 API_KEY_NT = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
 let section, articles;
 
-let render = () => {
-  section = $('section[data-section="business"]')
-    ? 'business'
-    : $('section[data-section="politics"]')
-    ? 'politics'
-    : $('section[data-section="world"]')
-    ? 'world'
-    : 'home';
+if ($(`.top-section[data-section="business"]`)) {
+  section = 'business';
   renderTopArtcilesSections(section);
-};
-render();
+}
+if ($(`.top-section[data-section="technology"]`)) {
+  section = 'technology';
+  renderTopArtcilesSections(section);
+}
+if ($(`.top-section[data-section="politics"]`)) {
+  section = 'politics';
+  renderTopArtcilesSections(section);
+}
+if ($(`.top-section[data-section="world"]`)) {
+  section = 'world';
+  renderTopArtcilesSections(section);
+}
 
 function renderTopArtcilesSections(section) {
+  console.log(section);
   let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY_NT}`;
 
   $.ajax({
@@ -22,13 +28,14 @@ function renderTopArtcilesSections(section) {
   })
     .then(function (resp) {
       let results = resp.results;
+      console.log(results);
       // filter results by categories
       // let business = results.filter((results) => {
       //   return results.section.includes('business');
       // });
 
       // then add to the rest
-      const articles = $('.top-section article');
+      const articles = $(`.top-section[data-section="${section}"] article`);
       const featuredArticle = results[0];
 
       updateArticleContent(featuredArticle, $(articles[0]));
