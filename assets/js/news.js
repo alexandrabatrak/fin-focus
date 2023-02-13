@@ -151,7 +151,7 @@ function searchNews(keywords, categoryNews, isSearch) {
           );
         }
         categoryNews.find('.row').prepend(
-          `<div class="pe-3 mb-5">
+          `<div class="article-wrapper pe-3 pb-4 mb-5">
             <article class="w-100">
               <div class="article-content d-flex flex-column flex-md-row">
                 <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
