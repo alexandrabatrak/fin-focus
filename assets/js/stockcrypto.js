@@ -197,14 +197,14 @@ $.ajax({
     let marketplace;
 
     $('.open-market').append(
-      `<div class="pb-3 d-flex flex-row flex-lg-column">
+      `<div class="pb-3 d-flex flex-row">
         <div class="market me-3">
           <span class="me-1 fw-bold">Market: </span>
           <span class="text-uppercase fw-bold ${
             market.includes('open') ? 'open' : 'closed'
           }">${market}</span>
         </div>
-        <div class="marketplaces d-flex flex-row flex-lg-column"></div>
+        <div class="marketplaces d-flex flex-row"></div>
       </div>`
     );
 
