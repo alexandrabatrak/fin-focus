@@ -4,12 +4,19 @@ const sections = ['business', 'technology', 'politics', 'world'];
 
 sections.forEach((section) => {
   if ($(`.top-section[data-section="${section}"]`).length) {
-    renderTopArtcilesSections(section);
+    articles = $(`.top-section[data-section="${section}"] article`);
+    renderTopArtcilesSections(section, articles, true);
   }
 });
 
-function renderTopArtcilesSections(section) {
-  console.log(section);
+function asideNewsRender() {
+  articles = $('#aside-top-news article');
+  section = 'business';
+  renderTopArtcilesSections(section, articles, false);
+}
+asideNewsRender();
+
+function renderTopArtcilesSections(section, articles, isMain) {
   let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY_NT}`;
 
   $.ajax({
@@ -18,17 +25,19 @@ function renderTopArtcilesSections(section) {
   })
     .then(function (resp) {
       let results = resp.results;
-      console.log(results);
 
-      // then add to the rest
-      const articles = $(`.top-section[data-section="${section}"] article`);
-      const featuredArticle = results[0];
-
-      updateArticleContent(featuredArticle, $(articles[0]));
-
-      for (let i = 1; i < articles.length; i++) {
-        let article = results[i];
-        updateArticleContent(article, $(articles[i]));
+      if (isMain) {
+        const featuredArticle = results[0];
+        updateArticleContent(featuredArticle, $(articles[0]));
+        for (let i = 1; i < 3; i++) {
+          let article = results[i];
+          updateArticleContent(article, $(articles[i]));
+        }
+      } else {
+        for (let i = 3; i < articles.length + 3; i++) {
+          let article = results[i];
+          updateArticleContent(article, $(articles[i - 3]));
+        }
       }
 
       function updateArticleContent(article, $articleElement) {
@@ -58,7 +67,7 @@ function renderTopArtcilesSections(section) {
         ).append(`<a class="stretched-link" href="${articleURL} target="_blank"><h3>
       ${title}</h3></a>`);
         $articleElement.find('.article-abstract').append(`<p>${abstract}</p>`);
-        $articleElement.find('.by-line').text(`${byline}`);
+        $articleElement.find('.by-line').append(`<span>${byline}</span>`);
         $articleElement
           .find('.last-updated')
           .append(`<span>Published on</span> ${publishedDate}`);
@@ -72,27 +81,49 @@ function renderTopArtcilesSections(section) {
 // !! keywords return weird set of articles. Check exact keywords
 
 // TODO: Better UI - Add accordeon options so only few articles are shown in the group - generally the design isn't the best as it is
-let categoryNews = $('.category-news-articles-wrapper');
 let keywords = $('.category-news .nav').find('.category-tab').data('category');
-let newsDesk = [
-  'Business',
-  'Your Money',
-  'Entrepreneurs',
-  'Finance',
-  'Business day',
-  'SundayBusiness',
-];
-searchNews(keywords);
+let categoryNews = $('.category-news-articles-wrapper');
+let searchResults = $(
+  `<section class="search-results category-news">
+    <div class="heading-title pt-4 pb-2 mb-5">
+      <h2>Search results for <span id="searchKeyword" class="fst-italic"></span></h2>
+    </div>
+    <div class="row"></div>
+  </section>`
+);
+
+searchNews(keywords, categoryNews, false);
 $('.category-news').on('click', '.nav-item button', function () {
   keywords = $(this).attr('data-category');
-  categoryNews.empty();
-  searchNews(keywords);
+  // categoryNews.empty();
+  searchNews(keywords, categoryNews, false);
 });
 
-function searchNews(keywords) {
+// works, but couldn't get it to refresh the
+$('form#search').on('submit', function (e) {
+  e.preventDefault();
+  let input = $('#search input');
+  // prevent initialising search if input value is empty
+  if (input.val() == '') {
+    return;
+  } else {
+    keywords = $('#search input').val();
+    searchResults.find('#searchKeyword').text(keywords);
+    $('.main-content').empty().append(searchResults);
+    categoryNews = searchResults;
+    searchNews(keywords, categoryNews, true);
+    setTimeout(() => {
+      $('#search input').val('');
+    });
+  }
+});
+
+// TODO: use facet *section_name* instead of keywords
+
+function searchNews(keywords, categoryNews, isSearch) {
   let startDate = moment('2019').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
-  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Finance", "Business day", "SundayBusiness")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
+  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Financial", "Business day", "SundayBusiness", "Personal Investing", "Small Business", "Wealth")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
   $.ajax({
     url: searchArticles,
@@ -112,38 +143,41 @@ function searchNews(keywords) {
         let tags = results[i].keywords; // array
         let byline = results[i].byline.original;
         let publishedDate = moment(results[i].pub_date).format('LL');
-        categoryNews = $('.category-news-articles-wrapper').filter(function () {
-          return $(this).data('category') === keywords;
-        });
-        categoryNews.find('.row').append(
+        if (!isSearch) {
+          categoryNews = $('.category-news-articles-wrapper').filter(
+            function () {
+              return $(this).data('category') === keywords;
+            }
+          );
+        }
+        categoryNews.find('.row').prepend(
           `<div class="pe-3 mb-5">
-          <article class="w-100">
-            <div class="article-content d-flex flex-column flex-md-row">
-              <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
-                <div class="thumbnail-bg" style="background-image: url(${thumbnail})"></div>
-                <div
-                  class="badge category mt-0 rounded-0 text-white text-uppercase text-right position-absolute bottom-0 end-0">
-                  ${category}</div>
+            <article class="w-100">
+              <div class="article-content d-flex flex-column flex-md-row">
+                <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
+                  <div class="thumbnail-bg" style="background-image: url(${thumbnail})"></div>
+                  <div
+                    class="badge category mt-0 rounded-0 text-white text-uppercase text-right position-absolute bottom-0 end-0">
+                    ${category}</div>
+                </div>
+                <div class="article-details col-sm-12 col-md-8">
+                  <div class="article-title mb-3">
+                    <h3 class="pb-3">${title}</h3>
+                    <div class="by-line">${byline}</div>
+                    <div class="published"><span>Published on </span>${publishedDate}</div>
+                  </div>
+                  <div class="article-abstract mb-3">
+                    <h5>${abstract}</h5>
+                  </div>
+                  <div class="article-lead">
+                    <p>${leadParagraph}... <a href="${articleURL}" target="_blank"><span class="read-more">Read more</span></a></p>
+                  </div>
+                </div>
               </div>
-              <div class="article-details col-sm-12 col-md-8">
-                <div class="article-title mb-3">
-                  <h3 class="pb-3">${title}</h3>
-                  <div class="by-line">${byline}</div>
-                  <div class="published"><span>Published on </span>${publishedDate}</div>
-                </div>
-                <div class="article-abstract mb-3">
-                  <h5>${abstract}</h5>
-                </div>
-                <div class="article-lead">
-                  <p>${leadParagraph}... <a href="${articleURL}" target="_blank"><span class="read-more">Read more</span></a></p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>`
+            </article>
+          </div>`
         );
       }
-      thumbnailHeight();
     })
     // TODO: add error render to html
     .catch((err) => console.log(err));
