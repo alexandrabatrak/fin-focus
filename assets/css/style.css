@@ -6,7 +6,6 @@
   --red: rgb(220, 53, 69);
 
   --serif: 'Cormorant Garamond', serif;
-  /* --sans: 'Open Sans', sans-serif; */
   --sans: 'Barlow', sans-serif;
 
   --swiper-navigation-size: 1.5rem;
@@ -363,11 +362,6 @@ aside article {
   text-transform: uppercase;
   letter-spacing: 5px;
 }
-
-/* .section-title h3,
-section:not(.intro) .about-section-content {
-  border-top: 2px solid var(--black);
-} */
 
 .card {
   max-width: 350px;
