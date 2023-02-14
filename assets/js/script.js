@@ -27,6 +27,11 @@ $.ajax({
   // TODO: add error render to html
   .catch((err) => console.log(err));
 
+// search input focus
+$('#search input')
+  .on('focus', () => $('#search').addClass('focus'))
+  .on('blur', () => $('#search').removeClass('focus'));
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
