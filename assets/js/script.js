@@ -32,18 +32,17 @@ $('#search input')
   .on('focus', () => $('#search').addClass('focus'))
   .on('blur', () => $('#search').removeClass('focus'));
 
-  // Adding styles to css footer
-
-  function contactHeight() {
-    if ($('body').hasClass('contact')) {
-      $($('#contact')).css({
-        height: `calc(100vh - ${$('header').outerHeight(true)}px - ${$(
-          'footer'
-        ).outerHeight(true)}px)`,
-      });
-    }
+// Height of the contact content
+function contactHeight() {
+  if ($('body').hasClass('contact')) {
+    $('#contact').css({
+      height: `calc(100vh - ${$('header').outerHeight(true)}px - ${$(
+        'footer'
+      ).outerHeight(true)}px)`,
+    });
   }
-  contactHeight();
+}
+contactHeight();
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
