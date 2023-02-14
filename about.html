@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
@@ -10,274 +11,365 @@
       href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
       rel="stylesheet" />
     <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link
+      href="https://fonts.bunny.net/css?family=barlow:300,400,700|cormorant-garamond:500,500i,600"
       rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
-    <title>Finfocus</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://kit.fontawesome.com/f549d17040.js"
       crossorigin="anonymous"></script>
+    <title>Finfocus</title>
   </head>
-  <body>
+  <body class="about">
     <header class="container-fluid bg-black">
-      <!-- ------------------------------------------------------------------- -->
       <!-- Navbar -->
-      <!-- ------------------------------------------------------------------- -->
-      <div class="container-fluid bg-black">
-        <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
-          <div class="container-fluid">
-            <a class="navbar-brand text-white text-uppercase" href="#"
-              >Finfocus</a
+      <div class="row">
+        <nav class="navbar navbar-expand-lg text-white">
+          <div class="vw-100 d-flex justify-content-center py-3">
+            <a class="navbar-brand text-white text-uppercase h3" href="#"
+              >FINFOCUS</a
             >
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active text-white"
-                    aria-current="page"
-                    href="#"
-                    >Finance</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Business</a>
-                </li>
-                <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#">Entrepreneurs</a>
-                </li>
-                <li class="nav-item" href="#">
-                  <a class="nav-link text-white" href="#">Your money</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input
-                  class="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search" />
-                <button class="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
-            </div>
+          </div>
+          <div class="container-fluid d-flex justify-content-center">
+            <ul class="nav text-uppercase">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#about"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#team">Our team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact us</a>
+              </li>
+            </ul>
           </div>
         </nav>
       </div>
     </header>
     <main class="container-fluid">
-      <!-- ------------------------------------------------------------------- -->
       <!-- Background image -->
-      <!-- ------------------------------------------------------------------- -->
-      <div
-        class="masthead"
-        style="
-          background-image: url('./assets/img/DR_horizontal_financial_backgound_81669026-1841-4763-ad76-58c5271a8e11_v2_resized.jpg');
-        "
-        ;>
+      <div class="masthead row">
         <div
-          class="color-overlay d-flex text-center justify-content-center align-items-center">
-          <h1>About Us</h1>
+          class="color-overlay d-flex justify-content-center align-items-center px-5">
+          <h1 class="text-uppercase">About us</h1>
         </div>
       </div>
 
-      <div class="row mx-auto mt-5" style="max-width: 1600px"></div>
-      <!-- About us content-->
-
-      <div class="container pt-4">
-        <div class="aboutus-content">
-          <p class="text-center">
-            Welcome to FinFocus, a trusted provider of financial news and
-            services for individuals and businesses alike.
-          </p>
-
-          <p>
-            The cost of living has been increasing globally in recent years due
-            to a variety of factors, including inflation and the devaluation of
-            local currencies. It has led to a strain on household budgets and
-            has had significant implications for many individuals and families,
-            particularly those on fixed incomes or those living in poverty. The
-            rising cost of living has been a major contributor to income
-            inequality growth. Those at the lower end of the income spectrum
-            struggle to keep up with the increasing costs of housing and other
-            essentials.
-          </p>
-          <p>
-            There is only so much the government can do to help struggling
-            households, and it is up to individuals to explore ways to bring in
-            additional income to help ease their financial struggles. At
-            FinFocus, our mission is to help those impacted navigate the
-            challenges of the current global economic landscape and provide them
-            with the resources they need to achieve financial stability and
-            security.
-          </p>
-        </div>
-      </div>
-
-      <!-- Services -->
-      <div class="row mx-auto mt-5" style="max-width: 1600px">
-        <h2 style="text-align: center">Our Services</h2>
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <div class="container">
-                <h3>Banking services</h3>
-                <i class="fa-solid fa-building-columns fa-2x"></i>
+      <div class="row max-wide mx-auto">
+        <section class="intro-section mt-5">
+          <div class="row">
+            <div
+              class="about-section-content col-md-12 col-lg-8 pt-1 pe-5 offset-0 offset-lg-4">
+              <h2 class="intro">
+                A trusted provider of financial news and services for
+                individuals and businesses alike.
+              </h2>
+            </div>
+          </div>
+        </section>
+        <!-- our mission -->
+        <section id="about" class="about-section my-4">
+          <div class="row">
+            <div
+              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3">Our mission</h3>
+            </div>
+            <div class="about-section-content col-md-12 col-lg-8 pt-1 pe-5">
+              <div class="description pt-3">
                 <p>
-                  Our banking services includes personal and business checking
-                  and savings accounts, loans, mortgages, and credit cards. Have
-                  a chat with our team to get the latest and up to date
-                  information.
+                  The cost of living has been increasing globally in recent
+                  years due to a variety of factors, including inflation and the
+                  devaluation of local currencies. It has led to a strain on
+                  household budgets and has had significant implications for
+                  many individuals and families, particularly those on fixed
+                  incomes or those living in poverty. The rising cost of living
+                  has been a major contributor to income inequality growth.
+                  Those at the lower end of the income spectrum struggle to keep
+                  up with the increasing costs of housing and other essentials.
+                </p>
+                <p>
+                  There is only so much the government can do to help struggling
+                  households, and it is up to individuals to explore ways to
+                  bring in additional income to help ease their financial
+                  struggles. At FinFocus, our mission is to help those impacted
+                  navigate the challenges of the current global economic
+                  landscape and provide them with the resources they need to
+                  achieve financial stability and security.
                 </p>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="column">
-            <div class="card">
-              <div class="container">
-                <h3>Investment services</h3>
-                <i class="fa-solid fa-vault fa-2x"></i>
+        <!-- Services -->
+        <section id="services" class="services-section mt-2 mb-4">
+          <div class="row">
+            <div
+              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3">Our Services</h3>
+            </div>
+            <div class="about-section-content col-md-12 col-lg-8">
+              <div class="description pt-3">
                 <p>
-                  Chat with our investment advisors and lets find the right
-                  investment for you. From portfolio management, ISA,
-                  stock/shares and bond trading, and retirement planning.
+                  We provide financial advice and services for individuals and
+                  small businesses. Get <a href="#contact">in touch</a> for a
+                  custom quote.
                 </p>
               </div>
+              <div class="grid">
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <div class="container">
+                      <div
+                        class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-building-columns fa-2x"></i>
+                      </div>
+                      <h4 class="text-center">Banking services</h4>
+                      <p>
+                        Our banking services includes personal and business
+                        checking and savings accounts, loans, mortgages, and
+                        credit cards. Have a chat with our team to get the
+                        latest and up to date information.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <div class="container">
+                      <div
+                        class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-vault fa-2x"></i>
+                      </div>
+                      <h4 class="text-center">Investment services</h4>
+                      <p>
+                        Chat with our investment advisors and lets find the
+                        right investment for you. From portfolio management,
+                        ISA, stock/shares and bond trading, and retirement
+                        planning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <div class="container">
+                      <div
+                        class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-business-time fa-2x"></i>
+                      </div>
+                      <h4 class="text-center">Advisory services</h4>
+                      <p>
+                        With over 49 years of experience, and with wealth of
+                        experience, our advisory team will be happy to assist
+                        you with financial planning, wealth management, savings
+                        and more.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <div class="container">
+                      <div
+                        class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                        <i class="fa-solid fa-city fa-2x"></i>
+                      </div>
+                      <h4 class="text-center">Entrepreneurship</h4>
+                      <p>
+                        Despite these challenges, many people are drawn to
+                        entrepreneurship because of the potential rewards, and
+                        the opportunity to make a positive impact on the world.
+                        Know how to run a successful business.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div class="column">
-            <div class="card">
-              <div class="container">
-                <h3>Advisory services</h3>
-                <i class="fa-sharp fa-solid fa-business-time fa-2x"></i>
+        <!-- Our Team -->
+        <section id="team" class="team-section mt-2 mb-4">
+          <div class="row">
+            <div
+              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3">Our Team</h3>
+            </div>
+            <div class="about-section-content col-md-12 col-lg-8">
+              <div class="description pt-3">
                 <p>
-                  With over 49 years of experience, and with wealth of
-                  experience, our advisory team will be happy to assist you with
-                  financial planning, wealth management, savings and more.
+                  Hardworking individuals responsible for the development and
+                  sustainability of FinFocus:
                 </p>
               </div>
-            </div>
-          </div>
+              <div class="grid">
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <img
+                      src="https://cdn.midjourney.com/7e179718-fd0e-43ec-b140-fa7c21bc648f/grid_0.png"
+                      alt="Aleksandra"
+                      style="width: 100%" />
+                    <div class="container">
+                      <h4 class="name">Alexandra Batrak</h4>
+                      <h5 class="role">CEO & Founder</h5>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="mailto:'alexandra@lostmary.com'">
+                            <span class="visually-hidden"
+                              >alexandra@lostmary.com</span
+                            >
+                            <i class="fa-solid fa-at"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">LinkedIn</span
+                            ><i class="fa-brands fa-linkedin-in"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">Facebook</span
+                            ><i class="fa-brands fa-facebook-f"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
 
-          <div class="column">
-            <div class="card">
-              <div class="container">
-                <h3>Entrepreneurship</h3>
-                <i class="fa-solid fa-city fa-2x"></i>
-                <p>
-                  Despite these challenges, many people are drawn to
-                  entrepreneurship because of the potential rewards, and the
-                  opportunity to make a positive impact on the world. Know how
-                  to run a successful business.
-                </p>
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <img
+                      src="https://cdn.midjourney.com/5b842d32-c202-4283-af3f-25fe28fa9a51/grid_0.png"
+                      alt="Ademola"
+                      style="width: 100%" />
+                    <div class="container">
+                      <h4 class="name">Ademola Alashe</h4>
+                      <h5 class="role">Art Director</h5>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="mailto:'ademola@lostmary.com'"
+                            ><span class="visually-hidden"
+                              >ademola@lostmary.com</span
+                            ><i class="fa-solid fa-at"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">LinkedIn</span
+                            ><i class="fa-brands fa-linkedin-in"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">Facebook</span
+                            ><i class="fa-brands fa-facebook-f"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <img
+                      src="https://cdn.midjourney.com/914ca62b-fc58-4190-9c07-1e47c8077ce7/grid_0.png"
+                      alt="Damian"
+                      style="width: 100%" />
+                    <div class="container">
+                      <h4 class="name">Damian Rosiak</h4>
+                      <h5 class="role">Cleaner</h5>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="mailto:'damian@lostmary.com'"
+                            ><span class="visually-hidden"
+                              >damian@lostmary.com</span
+                            ><i class="fa-solid fa-at"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">LinkedIn</span
+                            ><i class="fa-brands fa-linkedin-in"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">Facebook</span
+                            ><i class="fa-brands fa-facebook-f"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid-item d-flex">
+                  <div class="card p-3 mb-3 me-3 rounded-0">
+                    <img
+                      src="https://cdn.midjourney.com/4c84e4c0-3f6b-409e-8842-e28d8b8da035/grid_0.png"
+                      alt="Vitaliy"
+                      style="width: 100%" />
+                    <div class="container">
+                      <h4 class="name">Vitaliy Zharkovskiy</h4>
+                      <h5 class="role">Designer</h5>
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="mailto:'vitaliy@lostmary.com'"
+                            ><span class="visually-hidden"
+                              >vitaliy@lostmary.com</span
+                            ><i class="fa-solid fa-at"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">LinkedIn</span
+                            ><i class="fa-brands fa-linkedin-in"></i
+                          ></a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#"
+                            ><span class="visually-hidden">Facebook</span
+                            ><i class="fa-brands fa-facebook-f"></i
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- ------------------------------------------------------------------- -->
-      <!-- Our Team -->
-      <!-- ------------------------------------------------------------------- -->
-      <div class="row mx-auto mt-5" style="max-width: 1600px">
-        <h2 style="text-align: center">Our Team</h2>
-        <div class="row">
-          <div class="column">
-            <div class="card">
-              <img
-                src="https://cdn.midjourney.com/7e179718-fd0e-43ec-b140-fa7c21bc648f/grid_0.png"
-                alt="Aleksandra"
-                style="width: 100%" />
-              <div class="container">
-                <h2>Alexandra Batrak</h2>
-                <p class="title">CEO & Founder</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>alexandra@lostmary.com</p>
-                <p><button class="button">Contact</button></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <img
-                src="https://cdn.midjourney.com/5b842d32-c202-4283-af3f-25fe28fa9a51/grid_0.png"
-                alt="Ademola"
-                style="width: 100%" />
-              <div class="container">
-                <h2>Ademola Alashe</h2>
-                <p class="title">Art Director</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>ademola@lostmary.com</p>
-                <p><button class="button">Contact</button></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <img
-                src="https://cdn.midjourney.com/4c84e4c0-3f6b-409e-8842-e28d8b8da035/grid_0.png"
-                alt="Vitaliy"
-                style="width: 100%" />
-              <div class="container">
-                <h2>Vitaliy Zharkovskiy</h2>
-                <p class="title">Designer</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>vitaliy@lostmary.com</p>
-                <p><button class="button">Contact</button></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="column">
-            <div class="card">
-              <img
-                src="https://cdn.midjourney.com/914ca62b-fc58-4190-9c07-1e47c8077ce7/grid_0.png"
-                alt="Damian"
-                style="width: 100%" />
-              <div class="container">
-                <h2>Damian Rosiak</h2>
-                <p class="title">Cleaner</p>
-                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                <p>damian@lostmary.com</p>
-                <p><button class="button">Contact</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     </main>
-
-    <!-- ------------------------------------------------------------------- -->
     <!-- Footer -->
-    <!-- ------------------------------------------------------------------- -->
     <footer class="bg-dark text-white">
       <div class="container p-4">
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h5 class="text-uppercase">FINFOCUS</h5>
-
-            <p>
-              A trusted provider of financial news and services for individuals
-              and businesses alike.
-            </p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-upperlowercase">Contact</h5>
-
+            <h5 class="text-uppercase">Links 1</h5>
             <ul class="list-unstyled mb-0">
               <li>
                 <a href="#!" class="text-white">About</a>
@@ -294,14 +386,13 @@
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-upperlowercase mb-0">Services</h5>
-
+            <h5 class="text-uppercase mb-0">Links 2</h5>
             <ul class="list-unstyled">
               <li>
                 <a href="#!" class="text-white">Finance</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Business</a>
+                <a href="#!" class="text-white">Buisness</a>
               </li>
               <li>
                 <a href="#!" class="text-white">Entrepreneurs</a>

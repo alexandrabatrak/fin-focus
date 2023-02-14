@@ -8,10 +8,13 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
     <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet" />
+    <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link
-      href="https://fonts.bunny.net/css?family=amiri:400,400i,700|open-sans:400,400i,700|bellefair:400|gilda-display:400"
+      href="https://fonts.bunny.net/css?family=barlow:300,400,700|cormorant-garamond:500,500i,600"
       rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <script
@@ -24,70 +27,64 @@
       <!-- ------------------------------------------------------------------- -->
       <!-- Navbar -->
       <!-- ------------------------------------------------------------------- -->
-      <div class="row">
-        <div class="container-fluid bg-black">
-          <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
-            <div class="container-fluid">
-              <a class="navbar-brand text-white text-uppercase" href="#"
-                >Finfocus</a
-              >
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 text-uppercase">
-                  <li class="nav-item">
-                    <a
-                      class="nav-link active text-white"
-                      aria-current="page"
-                      href="#financial"
-                      >Finances</a
-                    >
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link text-white" href="#technology"
-                      >Technology</a
-                    >
-                  </li>
-                  <li class="nav-item" href="#">
-                    <a class="nav-link text-white" href="#politics">Politics</a>
-                  </li>
-                  <li class="nav-item" href="#">
-                    <a class="nav-link text-white" href="#world">World</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input
-                    class="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search" />
-                  <button class="btn btn-outline-success" type="submit">
-                    Search
-                  </button>
-                </form>
-              </div>
-            </div>
-          </nav>
+      <div class="row bg-black">
+        <div class="vw-100 d-flex justify-content-center py-3">
+          <a class="navbar-brand text-white text-uppercase" href="#"
+            ><h1 class="h3">FINFOCUS</h1></a
+          >
         </div>
-        <div class="row mx-auto" style="max-width: 1600px">
-          <div class="swiper">
-            <div class="stock-wrapper swiper-wrapper"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+        <div class="container-fluid max-wide">
+          <div class="navbar text-white">
+            <div
+              class="today-weather d-flex flex-column flex-sm-row align-items-baseline">
+              <div id="today-date" class="today-date me-5"></div>
+              <div id="weather" class="weather me-5"></div>
+            </div>
+            <form id="search" class="d-flex me-4" role="search">
+              <input
+                class="form-control me-2 rounded-0"
+                type="search"
+                placeholder="Search"
+                aria-label="Search" />
+              <button class="btn" type="submit">
+                <span class="visually-hidden">Search</span>
+                <i class="fa-solid fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
           </div>
         </div>
+        <div
+          class="container-fluid d-flex justify-content-between align-items-baseline flex-column flex-lg-row max-wide">
+          <div class="open-market text-white"></div>
+        </div>
       </div>
-      <div class="d-flex flex-row justify-content-end align-items-baseline">
-        <div id="today-date" class="today-date me-5"></div>
-        <div id="weather" class="today-weather me-5"></div>
+      <div class="row mx-auto max-wide">
+        <div class="swiper">
+          <div class="stock-wrapper swiper-wrapper"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <nav class="navbar categories" role="navigation">
+          <div class="container-fluid">
+            <ul
+              class="navbar-nav flex-column flex-md-row mb-2 mb-lg-0 text-uppercase">
+              <li class="nav-item me-5">
+                <a class="nav-link active" aria-current="page" href="#financial"
+                  >Finances</a
+                >
+              </li>
+              <li class="nav-item me-5">
+                <a class="nav-link" href="#technology">Technology</a>
+              </li>
+              <li class="nav-item me-5" href="#">
+                <a class="nav-link" href="#politics">Politics</a>
+              </li>
+              <li class="nav-item" href="#">
+                <a class="nav-link" href="#world">World</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
     </header>
     <main class="container-fluid">
@@ -118,8 +115,8 @@
             </article>
             <!-- end of featured article -->
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -128,7 +125,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -137,8 +135,8 @@
               </div>
             </article>
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -147,7 +145,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -157,8 +156,8 @@
             </article>
           </section>
           <!-- end of top-section -->
-          <section class="category-news mt-5">
-            <div class="heading-title py-3">
+          <section id="financial" class="category-news mt-5">
+            <div class="heading-title pt-4 pb-2">
               <h2>Financial</h2>
             </div>
             <!-- navigational tabs -->
@@ -166,57 +165,57 @@
               <li class="nav-item" role="presentation">
                 <button
                   class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase active"
-                  id="pills-finances-tab"
+                  id="pills-finance-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-finances"
+                  data-bs-target="#pills-finance"
                   type="button"
                   role="tab"
-                  aria-controls="pills-finances"
+                  aria-controls="pills-finance"
                   aria-selected="true"
-                  data-category="finances">
-                  Finances
+                  data-category="Finance">
+                  Finance
                 </button>
               </li>
               <li class="nav-item" role="presentation">
                 <button
                   class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-business-tab"
+                  id="pills-wealth-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-business"
+                  data-bs-target="#pills-wealth"
                   type="button"
                   role="tab"
-                  aria-controls="pills-business"
+                  aria-controls="pills-wealth"
                   aria-selected="false"
-                  data-category="business">
-                  Business
+                  data-category="Wealth">
+                  Wealth
                 </button>
               </li>
               <li class="nav-item" role="presentation">
                 <button
                   class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-yourmoney-tab"
+                  id="pills-investment-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-yourmoney"
+                  data-bs-target="#pills-investment"
                   type="button"
                   role="tab"
-                  aria-controls="pills-yourmoney"
+                  aria-controls="pills-investment"
                   aria-selected="false"
-                  data-category="yourmoney">
-                  Your money
+                  data-category="Investment">
+                  Investment
                 </button>
               </li>
               <li class="nav-item" role="presentation">
                 <button
                   class="category-tab nav-link mb-3 me-3 px-4 rounded-0 text-uppercase"
-                  id="pills-stocks-tab"
+                  id="pills-entrepreneurs-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-stocks"
+                  data-bs-target="#pills-entrepreneurs"
                   type="button"
                   role="tab"
-                  aria-controls="pills-stocks"
+                  aria-controls="pills-entrepreneurs"
                   aria-selected="false"
-                  data-category="stocks">
-                  Stocks
+                  data-category="Entrepreneurs">
+                  Entrepreneurs
                 </button>
               </li>
             </ul>
@@ -224,38 +223,38 @@
             <div class="category-news tab-content mb-5" id="pills-tabContent">
               <div
                 class="category-news-articles-wrapper tab-pane fade show active"
-                id="pills-finances"
+                id="pills-finance"
                 role="tabpanel"
-                aria-labelledby="pills-finances-tab"
+                aria-labelledby="pills-finance-tab"
                 tabindex="0"
-                data-category="finances">
+                data-category="Finance">
                 <div class="row"></div>
               </div>
               <div
                 class="category-news-articles-wrapper tab-pane fade"
-                id="pills-business"
+                id="pills-wealth"
                 role="tabpanel"
-                aria-labelledby="pills-business-tab"
+                aria-labelledby="pills-wealth-tab"
                 tabindex="0"
-                data-category="business">
+                data-category="Wealth">
                 <div class="row"></div>
               </div>
               <div
                 class="category-news-articles-wrapper tab-pane fade"
-                id="pills-yourmoney"
+                id="pills-investment"
                 role="tabpanel"
-                aria-labelledby="pills-yourmoney-tab"
+                aria-labelledby="pills-investment-tab"
                 tabindex="0"
-                data-category="yourmoney">
+                data-category="Investment">
                 <div class="row"></div>
               </div>
               <div
                 class="category-news-articles-wrapper tab-pane fade"
-                id="pills-stocks"
+                id="pills-entrepreneurs"
                 role="tabpanel"
-                aria-labelledby="pills-stocks-tab"
+                aria-labelledby="pills-entrepreneurs-tab"
                 tabindex="0"
-                data-category="stocks">
+                data-category="Entrepreneurs">
                 <div class="row"></div>
               </div>
             </div>
@@ -265,7 +264,7 @@
             id="technology"
             class="top-section technology-news"
             data-section="technology">
-            <div class="heading-title py-3">
+            <div class="heading-title pt-4 pb-2">
               <h2>Technology</h2>
             </div>
             <!-- featured article -->
@@ -289,8 +288,8 @@
             </article>
             <!-- end of featured article -->
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -299,7 +298,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -308,8 +308,8 @@
               </div>
             </article>
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -318,7 +318,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -331,7 +332,7 @@
             id="politics"
             class="top-section politics-news"
             data-section="politics">
-            <div class="heading-title py-3">
+            <div class="heading-title pt-4 pb-2">
               <h2>Politics</h2>
             </div>
             <!-- featured article -->
@@ -355,8 +356,8 @@
             </article>
             <!-- end of featured article -->
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -365,7 +366,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -374,8 +376,8 @@
               </div>
             </article>
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -384,7 +386,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -397,7 +400,7 @@
             id="world"
             class="top-section world-news"
             data-section="world">
-            <div class="heading-title py-3">
+            <div class="heading-title pt-4 pb-2">
               <h2>World</h2>
             </div>
             <!-- featured article -->
@@ -421,8 +424,8 @@
             </article>
             <!-- end of featured article -->
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -431,7 +434,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -440,8 +444,8 @@
               </div>
             </article>
             <article class="my-4 py-3">
-              <div class="d-flex">
-                <div class="flex-shrink-1 me-4">
+              <div class="d-flex flex-column flex-md-row">
+                <div class="flex-md-shrink-1 me-md-4">
                   <div class="thumbnail"></div>
                 </div>
                 <div class="article-content w-100 position-relative">
@@ -450,7 +454,8 @@
                   <div class="article-details pt-4">
                     <div class="article-title pt-1 pb-3"></div>
                     <div class="article-abstract"></div>
-                    <div class="d-flex flex-row justify-content-between">
+                    <div
+                      class="d-flex flex-column flex-md-row justify-content-between">
                       <div class="by-line"></div>
                       <div class="last-updated"></div>
                     </div>
@@ -612,42 +617,42 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links 1</h5>
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">About</a>
+                <a href="about.html" class="text-white">About</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Terms & Conditions</a>
+                <a href="#" class="text-white">Terms & Conditions</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Privacy Policy</a>
+                <a href="#" class="text-white">Privacy Policy</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Contact us</a>
+                <a href="contact.html" class="text-white">Contact us</a>
               </li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase">Links 2</h5>
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">Finance</a>
+                <a href="index.html#finances" class="text-white">Finance</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Buisness</a>
+                <a href="index.html#technology" class="text-white"
+                  >Technology</a
+                >
               </li>
               <li>
-                <a href="#!" class="text-white">Entrepreneurs</a>
+                <a href="index.html#politics" class="text-white">Politics</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Your money</a>
+                <a href="index.html#world" class="text-white">World</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1)">
+      <div class="copyright text-center pt-3 pb-1">
         <p>LOST MARY © 2022</p>
       </div>
     </footer>

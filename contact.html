@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      href="https://fonts.bunny.net/css?family=amiri:400,400i,700|open-sans:400,400i,700|bellefair:400|gilda-display:400"
+      rel="stylesheet"
+    />
+    <link href="./assets/css/style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/f549d17040.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Finfocus</title>
+  </head>
+  <body>
+    <header class="container-fluid">
+      <!-- ------------------------------------------------------------------- -->
+      <!-- Navbar -->
+      <!-- ------------------------------------------------------------------- -->
+
+      <div class="row">
+        <div class="container-fluid bg-black">
+          <nav class="navbar navbar-expand-lg text-white" style="height: 100px">
+            <div class="container-fluid">
+              <a class="navbar-brand text-white text-uppercase" href="#"
+                >Finfocus</a
+              >
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0 text-uppercase">
+                  <li class="nav-item">
+                    <a
+                      class="nav-link active text-white"
+                      aria-current="page"
+                      href="#financial"
+                      >Finances</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-white" href="#technology"
+                      >Technology</a
+                    >
+                  </li>
+                  <li class="nav-item" href="#">
+                    <a class="nav-link text-white" href="#politics">Politics</a>
+                  </li>
+                  <li class="nav-item" href="#">
+                    <a class="nav-link text-white" href="#world">World</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input
+                    class="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-outline-success" type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="row mx-auto" style="max-width: 1600px">
+          <div class="swiper">
+            <div class="stock-wrapper swiper-wrapper"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex flex-row justify-content-end align-items-baseline">
+        <div id="today-date" class="today-date me-5"></div>
+        <div id="weather" class="today-weather me-5"></div>
+      </div>
+    </header>
+    <!-- ------------------------------------------------------------------- -->
+    <!-- Contact form -->
+    <!-- ------------------------------------------------------------------- -->
+
+    <button
+      type="button"
+      id="nav-contact-btn"
+      class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase reveal reveal-from-top"
+      data-bs-toggle="modal"
+      data-bs-target="#contactModal"
+    >
+      <i class="fa-regular fa-hand-back-fist" aria-hidden="true"></i>
+      <span class="visually-hidden">Contact button</span>
+      <span area-hidden="true">Knock-knock</span>
+    </button>
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3">
+          <div class="modal-header">
+            <h2
+              class="modal-title fs-5 reveal reveal-from-bottom"
+              id="contactLabel"
+            >
+              Get in touch
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="row g-3 p-3 pb-5 needs-validation text-font"
+              novalidate
+            >
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationFirstName" class="form-label"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationFirstName"
+                  placeholder="Jane"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationLastName" class="form-label"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationLastName"
+                  placeholder="Doe"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <label for="validationEmail" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationEmail"
+                  placeholder="name@example.com"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please type a valid email address.
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="mb-3">
+                  <label for="Message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="Message"
+                    rows="3"
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Cannot be empty.</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3 reveal reveal-from-bottom">
+                <label for="formFileMultiple" class="form-label"
+                  >Add files of inspiration</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck"
+                    required
+                  />
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to
+                    <a href="#" target="_blank">terms &amp; conditions</a>
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <button
+                  class="btn btn-primary text-uppercase submit"
+                  type="submit"
+                >
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary reveal reveal-from-right"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Contact form modal -->
+
+    <!-- ------------------------------------------------------------------- -->
+    <!-- Footer -->
+    <!-- ------------------------------------------------------------------- -->
+    <footer class="bg-dark text-white">
+      <div class="container p-4">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">FINFOCUS</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links 1</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">About</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Terms & Conditions</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#contactModal" class="text-white">Contact us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Links 2</h5>
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Finance</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Buisness</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Entrepreneurs</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Your money</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1)">
+        <p>LOST MARY © 2022</p>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="./assets/js/stockcrypto.js" async></script>
+    <script src="./assets/js/news.js" async></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
