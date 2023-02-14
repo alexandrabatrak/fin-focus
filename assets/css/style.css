@@ -5,9 +5,9 @@
   --green: rgb(8, 200, 94);
   --red: rgb(220, 53, 69);
 
-  --serif: "Cormorant Garamond", serif;
+  --serif: 'Cormorant Garamond', serif;
   /* --sans: 'Open Sans', sans-serif; */
-  --sans: "Barlow", sans-serif;
+  --sans: 'Barlow', sans-serif;
 
   --swiper-navigation-size: 1.5rem;
 }
@@ -150,7 +150,7 @@ section .heading-title {
   max-width: 200px;
 }
 
-.crypto-wrapper .swiper-slide[aria-label="1 / 20"] .crypto-item {
+.crypto-wrapper .swiper-slide[aria-label='1 / 20'] .crypto-item {
   padding-left: 0 !important;
 }
 
@@ -285,6 +285,10 @@ aside article {
   font-size: 1.25rem;
 }
 
+.copyright {
+  background: var(--black);
+}
+
 /*====================
 *
 * ABOUT PAGE 
@@ -309,7 +313,7 @@ aside article {
 }
 
 .masthead {
-  background-image: url("../img/DR_horizontal_financial_backgound_81669026-1841-4763-ad76-58c5271a8e11_v2_resized.jpg");
+  background-image: url('../img/DR_horizontal_financial_backgound_81669026-1841-4763-ad76-58c5271a8e11_v2_resized.jpg');
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -336,7 +340,8 @@ aside article {
   max-width: 1600px;
 }
 
-.about-section-content {
+.about-section-content,
+.contact-section-content {
   max-width: 768px;
 }
 
