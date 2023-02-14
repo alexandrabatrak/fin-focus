@@ -27,10 +27,15 @@ $.ajax({
   // TODO: add error render to html
   .catch((err) => console.log(err));
 
+// search input focus
+$('#search input')
+  .on('focus', () => $('#search').addClass('focus'))
+  .on('blur', () => $('#search').removeClass('focus'));
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
-  slidesPerView: 5,
+  slidesPerView: 7,
   spaceBetween: 0,
   initialSlide: 5,
   navigation: {
@@ -42,23 +47,11 @@ const swiper = new Swiper('.swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
     },
-    350: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-    },
-    540: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-    },
     768: {
       slidesPerView: 3,
       spaceBetween: 0,
     },
     1100: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-    },
-    1200: {
       slidesPerView: 5,
       spaceBetween: 0,
     },
@@ -69,7 +62,7 @@ const swiperCrypto = new Swiper('.swiper-crypto', {
   direction: 'horizontal',
   slidesPerView: 2,
   spaceBetween: 0,
-  initialSlide: 2,
+  initialSlide: 0,
   pagination: {
     el: '.swiper-pagination',
     dynamicBullets: true,
@@ -83,12 +76,12 @@ const swiperCrypto = new Swiper('.swiper-crypto', {
       slidesPerView: 2,
       spaceBetween: 0,
     },
-    540: {
+    768: {
       slidesPerView: 3,
       spaceBetween: 0,
     },
-    768: {
-      slidesPerView: 2,
+    992: {
+      slidesPerView: 5,
       spaceBetween: 0,
     },
     1300: {

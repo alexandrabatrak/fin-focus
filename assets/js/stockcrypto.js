@@ -3,45 +3,42 @@
 const API_KEY_STOCKS = '92bKvhEWQYOkEYm66Zp3bDSWLJJY5C5q';
 // note: API retrieve's yesterday's closing date Monday-Friday
 // 0 is sunday, 6 is saturday
-// to gather any data for stocks 1.5 interval works better, but I don't always want to do .5 interval
-// if time less than 8, do .5, otherwise normal
+// to gather any data for stocks 1.5 interval works better as I cannot retrieve end of the day data on a free plan.
 
-// let date =
-//   moment().day() === 0 || moment().day() === 6
-//     ? moment().format('YYYY-MM-DD')
-//     : moment().day() === 1
-//     ? moment()
-//         .day(moment().hour() >= 0 && moment().hour() < 8 ? -3 : 3)
-//         .format('YYYY-MM-DD')
-//     : moment()
-//         .day(
-//           moment().hour() >= 0 && moment().hour() < 8
-//             ? moment().day() === 0
-//               ? -2
-//               : -1
-//             : moment().day() === 0
-//             ? 2
-//             : 1
-//         )
-//         .format('YYYY-MM-DD');
-
+// further testing required for this logic - IT SHOULD RETURN CORRECT, BUT DOESN't
 let date = moment().format('YYYY-MM-DD');
 
 if (moment().day() === 1) {
+  // Monday
   if (moment().hour() >= 0 && moment().hour() < 8) {
     date = moment().subtract(3.5, 'days').format('YYYY-MM-DD');
   } else {
     date = moment().subtract(3, 'days').format('YYYY-MM-DD');
   }
-} else if (moment().day() === 0 || moment().day() === 6) {
-  date = moment().format('YYYY-MM-DD');
-} else {
+} else if (moment().day() === 0) {
+  // Sunday
+  if (moment().hour() >= 0 && moment().hour() < 8) {
+    date = moment().subtract(2.5, 'days').format('YYYY-MM-DD');
+  } else {
+    date = moment().subtract(2, 'days').format('YYYY-MM-DD');
+  }
+} else if (moment().day() === 6) {
+  // Saturday
   if (moment().hour() >= 0 && moment().hour() < 8) {
     date = moment().subtract(1.5, 'days').format('YYYY-MM-DD');
   } else {
     date = moment().subtract(1, 'days').format('YYYY-MM-DD');
   }
+} else {
+  // Wednesday, Thursday or Friday
+  if (moment().hour() >= 0 && moment().hour() < 8) {
+    date = moment().subtract(1, 'days').format('YYYY-MM-DD');
+  } else {
+    date = moment().subtract(1.5, 'days').format('YYYY-MM-DD');
+  }
 }
+
+console.log(date);
 // let yesterday = moment().subtract(1, 'days').format('YYYY-MM-DD');
 let ticker;
 let stockQuery = `https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/${date}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
@@ -79,13 +76,6 @@ $.ajax({
       // don't know how to best calculate this shit
       let differencePercent = (difference / open) * 100;
 
-      // $.ajax({
-      //   url: tickerCoder,
-      //   method: 'GET'
-      // }).then(function(resp) {
-      //   console.log(resp);
-      // })
-
       $('.stock-wrapper').append(
         `<div class="swiper-slide" role="group">
           <div class="stock-item p-5">
@@ -121,9 +111,7 @@ $.ajax({
   .catch((err) => console.log(err));
 
 let cryptoQuery = `https://api.polygon.io/v2/aggs/grouped/locale/global/market/crypto/${date}?adjusted=true&apiKey=${API_KEY_STOCKS}`;
-
 // let exchanges = `https://api.polygon.io/v3/reference/exchanges?asset_class=crypto&locale=global&apiKey=${API_KEY_STOCKS}`
-
 $.ajax({
   url: cryptoQuery,
   method: 'GET',
@@ -141,10 +129,10 @@ $.ajax({
       // let high = topCrypto[i].h;
       // let low = topCrypto[i].l;
       //The number of transactions in the aggregate window.
-      let transactionsNumber = topCrypto[i].n;
+      // let transactionsNumber = topCrypto[i].n;
       // The trading volume of the symbol in the given time period.
       // The volume weighted average price.
-      let volumeAverage = topCrypto[i].vw;
+      // let volumeAverage = topCrypto[i].vw;
       let difference = close - open;
       let differencePercent = (difference / open) * 100;
 
@@ -184,7 +172,6 @@ $.ajax({
 
 // show when market is open
 let openMarket = `https://api.polygon.io/v1/marketstatus/now?apiKey=${API_KEY_STOCKS}`;
-
 $.ajax({
   url: openMarket,
   method: 'GET',
@@ -197,12 +184,10 @@ $.ajax({
     let marketplace;
 
     $('.open-market').append(
-      `<div class="pb-3 d-flex flex-row">
+      `<div class="pb-3 d-flex flex-row flex-wrap flex-sm-nowrap">
         <div class="market me-3">
           <span class="me-1 fw-bold">Market: </span>
-          <span class="text-uppercase fw-bold ${
-            market.includes('open') ? 'open' : 'closed'
-          }">${market}</span>
+          <span class="text-uppercase ${market}">${market}</span>
         </div>
         <div class="marketplaces d-flex flex-row"></div>
       </div>`
@@ -210,7 +195,7 @@ $.ajax({
 
     for (let [exchange, status] of Object.entries(exchanges)) {
       marketplace = $(
-        `<div class="me-1 mb-0"><span class="text-uppercase">${exchange}: </span><span class="text-uppercase me-2 mb-0 fw-bold">${status}</span></div>`
+        `<div class="me-1 mb-0"><span class="text-uppercase">${exchange}: </span><span class="text-uppercase me-2 mb-0 ${status}">${status}</span></div>`
       );
       $('.marketplaces').append(marketplace);
     }

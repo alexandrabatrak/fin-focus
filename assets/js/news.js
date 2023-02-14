@@ -133,7 +133,10 @@ function searchNews(keywords, categoryNews, isSearch) {
       let results = resp.response.docs;
 
       for (let i = 0; i < results.length; i++) {
-        let thumbnail = `'https://www.nytimes.com/${results[i].multimedia[22].url}'`;
+        let thumbnail = `'https://www.nytimes.com/${
+          results[i].multimedia.find((o) => o.crop_name === 'windowsTile336H')
+            .url
+        }'`;
         let category = results[i].section_name;
         let subcategory = results[i].subsection; // not all articles have
         let title = results[i].headline.main;
@@ -151,7 +154,7 @@ function searchNews(keywords, categoryNews, isSearch) {
           );
         }
         categoryNews.find('.row').prepend(
-          `<div class="pe-3 mb-5">
+          `<div class="article-wrapper pe-3 pb-4 mb-5">
             <article class="w-100">
               <div class="article-content d-flex flex-column flex-md-row">
                 <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
