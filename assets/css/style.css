@@ -284,7 +284,8 @@ aside article {
   font-size: 1.25rem;
 }
 
-footer h5 {
+footer h4 {
+  font-family: var(--serif);
   letter-spacing: 5px;
 }
 
@@ -294,6 +295,11 @@ footer a {
 
 footer a:hover {
   color: var(--accent) !important;
+}
+
+footer div:not(.copyright) p {
+  font-size: 1.5rem;
+  font-family: var(--serif);
 }
 
 .copyright {
