@@ -25,11 +25,12 @@ function renderTopArtcilesSections(section, articles, isMain) {
   })
     .then(function (resp) {
       let results = resp.results;
-      console.log(resp);
+      console.log(results);
 
       if (resp.status === 'OK') {
         if (isMain) {
           // skip empty articles
+          // doesn't solve the issue if the [0] and [2] are empty.
           let startIndex = 0;
           while (startIndex < results.length && !results[startIndex].url) {
             startIndex++;

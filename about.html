@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet" />
-    <link
       href="https://fonts.bunny.net/css?family=barlow:300,400,700|cormorant-garamond:500,500i,600"
       rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
     <script
       src="https://kit.fontawesome.com/f549d17040.js"
@@ -22,43 +23,58 @@
       <div class="row">
         <nav class="navbar text-white">
           <div class="vw-100 d-flex justify-content-center py-3">
-            <a class="navbar-brand text-white text-uppercase h3" href="#"
+            <a
+              class="navbar-brand text-white text-uppercase h3"
+              href="index.html"
               >FINFOCUS</a
             >
           </div>
-          <div class="container-fluid d-flex justify-content-center">
-            <ul class="nav text-uppercase">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  >About</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#services">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#team">Our team</a>
-              </li>
-            </ul>
-          </div>
         </nav>
       </div>
-    </header>
-    <main class="container-fluid">
       <!-- Background image -->
       <div class="masthead row">
         <div
           class="color-overlay d-flex justify-content-center align-items-center px-5">
-          <h1 class="text-uppercase">About us</h1>
+          <h1 class="text-uppercase" data-aos="fade-right">About us</h1>
         </div>
       </div>
-
-      <div class="row max-wide mx-auto">
-        <section class="intro-section mt-5">
+    </header>
+    <div class="sticky-nav sticky-md-top bg-white my-3" data-aos="fade-up">
+      <div class="container-fluid">
+        <div class="row mx-auto max-wide">
           <div class="row">
             <div
               class="section-content col-md-12 col-lg-8 pt-1 pe-5 offset-0 offset-lg-4">
-              <h2 class="intro">
+              <nav class="navbar categories" role="navigation">
+                <div class="container-fluid">
+                  <ul class="nav text-uppercase">
+                    <li class="nav-item me-3 mb-3 mb-md-0 px-3 py-0">
+                      <a class="nav-link" href="#intro">About</a>
+                    </li>
+                    <li class="nav-item me-3 mb-3 mb-md-0 px-3 py-0">
+                      <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item me-3 mb-3 mb-md-0 px-3 py-0">
+                      <a class="nav-link" href="#team">Our team</a>
+                    </li>
+                    <li class="nav-item mb-3 mb-md-0 px-3 py-0">
+                      <a class="nav-link" href="#location">Locations</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="container-fluid pb-5">
+      <div class="row max-wide mx-auto">
+        <section id="intro" class="intro-section mt-5">
+          <div class="row">
+            <div
+              class="section-content col-md-12 col-lg-8 pt-1 pe-5 offset-0 offset-lg-4">
+              <h2 class="intro pt-5" data-aos="fade-up">
                 A trusted provider of financial news and services for
                 individuals and businesses alike.
               </h2>
@@ -69,12 +85,12 @@
         <section id="about" class="about-section my-4">
           <div class="row">
             <div
-              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
-              <h3 class="pt-3">Our mission</h3>
+              class="section-title text-uppercase col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3" data-aos="fade-in">Our mission</h3>
             </div>
             <div class="section-content col-md-12 col-lg-8 pt-1 pe-5">
-              <div class="description pt-3">
-                <p>
+              <div class="description pt-4">
+                <p data-aos="fade-up">
                   The cost of living has been increasing globally in recent
                   years due to a variety of factors, including inflation and the
                   devaluation of local currencies. It has led to a strain on
@@ -85,7 +101,7 @@
                   Those at the lower end of the income spectrum struggle to keep
                   up with the increasing costs of housing and other essentials.
                 </p>
-                <p>
+                <p data-aos="fade-up">
                   There is only so much the government can do to help struggling
                   households, and it is up to individuals to explore ways to
                   bring in additional income to help ease their financial
@@ -103,27 +119,42 @@
         <section id="services" class="services-section mt-2 mb-4">
           <div class="row">
             <div
-              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
-              <h3 class="pt-3">Our Services</h3>
+              class="section-title text-uppercase col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3" data-aos="fade-in">Our Services</h3>
             </div>
             <div class="section-content col-md-12 col-lg-8">
-              <div class="description pt-3">
+              <div class="description pt-4" data-aos="fade-up">
                 <p>
                   We provide financial advice and services for individuals and
-                  small businesses. Get <a href="contact.html">in touch</a> for
-                  a custom quote.
+                  small businesses.
+                </p>
+                <p>
+                  Get <a href="contact.html">in touch</a> for a custom quote.
                 </p>
               </div>
               <div class="grid">
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div class="card p-3 mb-3 me-3 rounded-0" data-aos="fade-up">
                     <div class="container">
                       <div
                         class="icon-wrapper d-flex justify-content-center align-items-center my-3">
-                        <i class="fa-solid fa-building-columns fa-2x"></i>
+                        <i
+                          class="fa-solid fa-building-columns fa-2x"
+                          data-aos="zoom-in"
+                          data-aos-delay="100"
+                          data-aos-offset="200"></i>
                       </div>
-                      <h4 class="text-center">Banking services</h4>
-                      <p>
+                      <h4
+                        class="text-center"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Banking services
+                      </h4>
+                      <p
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         Our banking services includes personal and business
                         checking and savings accounts, loans, mortgages, and
                         credit cards. Have a chat with our team to get the
@@ -134,14 +165,30 @@
                 </div>
 
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div
+                    class="card p-3 mb-3 me-3 rounded-0"
+                    data-aos="fade-up"
+                    data-aos-delay="100">
                     <div class="container">
                       <div
                         class="icon-wrapper d-flex justify-content-center align-items-center my-3">
-                        <i class="fa-solid fa-vault fa-2x"></i>
+                        <i
+                          class="fa-solid fa-vault fa-2x"
+                          data-aos="zoom-in"
+                          data-aos-delay="100"
+                          data-aos-offset="200"></i>
                       </div>
-                      <h4 class="text-center">Investment services</h4>
-                      <p>
+                      <h4
+                        class="text-center"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Investment services
+                      </h4>
+                      <p
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         Chat with our investment advisors and lets find the
                         right investment for you. From portfolio management,
                         ISA, stock/shares and bond trading, and retirement
@@ -152,14 +199,30 @@
                 </div>
 
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div
+                    class="card p-3 mb-3 me-3 rounded-0"
+                    data-aos="fade-up"
+                    data-aos-delay="200">
                     <div class="container">
                       <div
                         class="icon-wrapper d-flex justify-content-center align-items-center my-3">
-                        <i class="fa-solid fa-business-time fa-2x"></i>
+                        <i
+                          class="fa-solid fa-business-time fa-2x"
+                          data-aos="zoom-in"
+                          data-aos-delay="100"
+                          data-aos-offset="200"></i>
                       </div>
-                      <h4 class="text-center">Advisory services</h4>
-                      <p>
+                      <h4
+                        class="text-center"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Advisory services
+                      </h4>
+                      <p
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         With over 49 years of experience, and with wealth of
                         experience, our advisory team will be happy to assist
                         you with financial planning, wealth management, savings
@@ -170,14 +233,30 @@
                 </div>
 
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div
+                    class="card p-3 mb-3 me-3 rounded-0"
+                    data-aos="fade-up"
+                    data-aos-delay="300">
                     <div class="container">
                       <div
                         class="icon-wrapper d-flex justify-content-center align-items-center my-3">
-                        <i class="fa-solid fa-city fa-2x"></i>
+                        <i
+                          class="fa-solid fa-city fa-2x"
+                          data-aos="zoom-in"
+                          data-aos-delay="100"
+                          data-aos-offset="200"></i>
                       </div>
-                      <h4 class="text-center">Entrepreneurship</h4>
-                      <p>
+                      <h4
+                        class="text-center"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Entrepreneurship
+                      </h4>
+                      <p
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         Despite these challenges, many people are drawn to
                         entrepreneurship because of the potential rewards, and
                         the opportunity to make a positive impact on the world.
@@ -195,11 +274,11 @@
         <section id="team" class="team-section mt-2 mb-4">
           <div class="row">
             <div
-              class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
-              <h3 class="pt-3">Founding members</h3>
+              class="section-title text-uppercase col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3" data-aos="fade-in">Our team</h3>
             </div>
             <div class="section-content col-md-12 col-lg-8">
-              <div class="description pt-3">
+              <div class="description pt-4" data-aos="fade-up">
                 <p>
                   Hardworking individuals responsible for the development and
                   sustainability of FinFocus:
@@ -207,15 +286,31 @@
               </div>
               <div class="grid">
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div class="card p-3 mb-3 me-3 rounded-0" data-aos="fade-up">
                     <img
                       src="https://cdn.midjourney.com/7e179718-fd0e-43ec-b140-fa7c21bc648f/grid_0.png"
                       alt="Aleksandra"
                       style="width: 100%" />
                     <div class="container">
-                      <h4 class="name">Alexandra Batrak</h4>
-                      <h5 class="role">CEO & Founder</h5>
-                      <ul class="list-inline">
+                      <h4
+                        class="name h5"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Aleksandra Batrak
+                      </h4>
+                      <h5
+                        class="role h6"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        CEO & Co-Founder
+                      </h5>
+                      <ul
+                        class="list-inline"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         <li class="list-inline-item">
                           <a href="mailto:'alexandra@lostmary.com'">
                             <span class="visually-hidden"
@@ -242,15 +337,34 @@
                 </div>
 
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div
+                    class="card p-3 mb-3 me-3 rounded-0"
+                    data-aos="fade-up"
+                    data-aos-delay="100">
                     <img
                       src="https://cdn.midjourney.com/5b842d32-c202-4283-af3f-25fe28fa9a51/grid_0.png"
                       alt="Ademola"
                       style="width: 100%" />
                     <div class="container">
-                      <h4 class="name">Ademola Alashe</h4>
-                      <h5 class="role">Art Director</h5>
-                      <ul class="list-inline">
+                      <h4
+                        class="name h5"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Ademola Alashe
+                      </h4>
+                      <h5
+                        class="role h6"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        COO & Co-Founder
+                      </h5>
+                      <ul
+                        class="list-inline"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         <li class="list-inline-item">
                           <a href="mailto:'ademola@lostmary.com'"
                             ><span class="visually-hidden"
@@ -276,15 +390,34 @@
                 </div>
 
                 <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
+                  <div
+                    class="card p-3 mb-3 me-3 rounded-0"
+                    data-aos="fade-up"
+                    data-aos-delay="200">
                     <img
                       src="https://cdn.midjourney.com/914ca62b-fc58-4190-9c07-1e47c8077ce7/grid_0.png"
                       alt="Damian"
                       style="width: 100%" />
                     <div class="container">
-                      <h4 class="name">Damian Rosiak</h4>
-                      <h5 class="role">Cleaner</h5>
-                      <ul class="list-inline">
+                      <h4
+                        class="name h5"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        Damian Rosiak
+                      </h4>
+                      <h5
+                        class="role h6"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
+                        CFO & Co-Founder
+                      </h5>
+                      <ul
+                        class="list-inline"
+                        data-aos="fade-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200">
                         <li class="list-inline-item">
                           <a href="mailto:'damian@lostmary.com'"
                             ><span class="visually-hidden"
@@ -313,13 +446,115 @@
           </div>
         </section>
         <section id="location" class="location-section mt-2 mb-4">
-          <p>
-            <i class="fa-solid fa-location-dot" aria-hidden="true"
-              ><span class="visually-hidden">Address</span></i
-            >
-            20 Cooper Square, New York<br />
-            NY 10003, USA
-          </p>
+          <div class="row">
+            <div
+              class="section-title text-uppercase col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
+              <h3 class="pt-3" data-aos="fade-in">Our offices</h3>
+            </div>
+            <div class="section-content col-md-12 col-lg-8">
+              <div class="description pt-4" data-aos="fade-up">
+                <p>We are contantly expanding our reach.</p>
+                <div class="card p-3 mb-3 me-3 rounded-0" data-aos="fade-up">
+                  <div class="container">
+                    <div
+                      class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                      <i
+                        class="fa-solid fa-location-dot fa-2x"
+                        aria-hidden="true"
+                        data-aos="zoom-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200"
+                        ><span class="visually-hidden">Address</span></i
+                      >
+                    </div>
+                    <h4 class="text-center">United Kingdom</h4>
+                    <p class="text-center"></p>
+                  </div>
+                </div>
+                <div
+                  class="card p-3 mb-3 me-3 rounded-0"
+                  data-aos="fade-up"
+                  data-aos-delay="100">
+                  <div class="container">
+                    <div
+                      class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                      <i
+                        class="fa-solid fa-location-dot fa-2x"
+                        aria-hidden="true"
+                        data-aos="zoom-in"
+                        data-aos-delay="100"
+                        data-aos-offset="200"
+                        ><span class="visually-hidden">Address</span></i
+                      >
+                    </div>
+                    <h4 class="text-center">United States</h4>
+                    <p class="text-center">
+                      20 Cooper Square, New York<br />
+                      NY 10003, USA
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="card p-3 mb-3 me-3 rounded-0"
+                  data-aos="fade-up"
+                  data-aos-delay="200">
+                  <div class="container">
+                    <div
+                      class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                      <i
+                        class="fa-solid fa-location-dot fa-2x"
+                        aria-hidden="true"
+                        data-aos="zoom-in"
+                        ><span class="visually-hidden">Address</span></i
+                      >
+                    </div>
+                    <h4 class="text-center">Estonia</h4>
+                    <p class="text-center">
+                      Pärnu mnt 18<br />
+                      10141 Tallinn<br />
+                      Estonia
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="card p-3 mb-3 me-3 rounded-0"
+                  data-aos="fade-up"
+                  data-aos-delay="300">
+                  <div class="container">
+                    <div
+                      class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                      <i
+                        class="fa-solid fa-location-dot fa-2x"
+                        aria-hidden="true"
+                        data-aos-delay="100"
+                        ><span class="visually-hidden">Address</span></i
+                      >
+                    </div>
+                    <h4 class="text-center">Poland</h4>
+                    <p class="text-center"></p>
+                  </div>
+                </div>
+                <div
+                  class="card p-3 mb-3 me-3 rounded-0"
+                  data-aos="fade-up"
+                  data-aos-delay="400">
+                  <div class="container">
+                    <div
+                      class="icon-wrapper d-flex justify-content-center align-items-center my-3">
+                      <i
+                        class="fa-solid fa-location-dot fa-2x"
+                        aria-hidden="true"
+                        data-aos-offset="200"
+                        ><span class="visually-hidden">Address</span></i
+                      >
+                    </div>
+                    <h4 class="text-center">Nigeria</h4>
+                    <p class="text-center"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>
@@ -327,14 +562,14 @@
     <footer class="bg-dark text-white">
       <div class="container px-4 py-5">
         <div class="row">
-          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+          <div class="col-lg-6 col-sm-12 mb-4 mb-md-0">
             <h4 class="text-uppercase">FINFOCUS</h4>
             <p class="fst-italic pe-5">
               A trusted provider of financial news and services for individuals
               and businesses alike
             </p>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <div class="col-lg-3 col-sm-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
                 <a href="index.html#business" class="text-white">Business</a>
@@ -355,7 +590,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <div class="col-lg-3 col-sm-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
                 <a href="about.html" class="text-white">About</a>
@@ -382,6 +617,7 @@
       crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

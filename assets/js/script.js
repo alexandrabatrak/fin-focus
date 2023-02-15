@@ -24,7 +24,6 @@ $.ajax({
       $('#weather').append(todayWeatherDisplay);
     }
   })
-  // TODO: add error render to html
   .catch((err) => console.log(err));
 
 // search input focus
@@ -36,7 +35,7 @@ $('#search input')
 function contactHeight() {
   if ($('body').hasClass('contact')) {
     $('#contact').css({
-      height: `calc(100vh - ${$('header').outerHeight(true)}px - ${$(
+      'min-height': `calc(100vh - ${$('header').outerHeight(true)}px - ${$(
         'footer'
       ).outerHeight(true)}px)`,
     });
@@ -44,61 +43,11 @@ function contactHeight() {
 }
 contactHeight();
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  slidesPerView: 7,
-  spaceBetween: 0,
-  initialSlide: 5,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-    },
-    1100: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-    },
-  },
-});
-const swiperCrypto = new Swiper('.swiper-crypto', {
-  // Optional parameters
-  direction: 'horizontal',
-  slidesPerView: 2,
-  spaceBetween: 0,
-  initialSlide: 0,
-  pagination: {
-    el: '.swiper-pagination',
-    dynamicBullets: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-    },
-    350: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 0,
-    },
-    992: {
-      slidesPerView: 5,
-      spaceBetween: 0,
-    },
-    1300: {
-      slidesPerView: 2,
-      spaceBetween: 0,
-    },
-  },
+// copyright year
+$('#year').text(moment().format('YYYY'));
+
+AOS.init({
+  easing: 'ease-in-out',
+  // once: true,
+  duration: 600,
 });
