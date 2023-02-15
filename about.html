@@ -8,12 +8,6 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
     <link
-      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
-      rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-    <link
       href="https://fonts.bunny.net/css?family=barlow:300,400,700|cormorant-garamond:500,500i,600"
       rel="stylesheet" />
     <link href="./assets/css/style.css" rel="stylesheet" />
@@ -26,7 +20,7 @@
     <header class="container-fluid bg-black">
       <!-- Navbar -->
       <div class="row">
-        <nav class="navbar navbar-expand-lg text-white">
+        <nav class="navbar text-white">
           <div class="vw-100 d-flex justify-content-center py-3">
             <a class="navbar-brand text-white text-uppercase h3" href="#"
               >FINFOCUS</a
@@ -35,10 +29,7 @@
           <div class="container-fluid d-flex justify-content-center">
             <ul class="nav text-uppercase">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#about"
+                <a class="nav-link active" aria-current="page" href="#"
                   >About</a
                 >
               </li>
@@ -47,9 +38,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#team">Our team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact us</a>
               </li>
             </ul>
           </div>
@@ -69,7 +57,7 @@
         <section class="intro-section mt-5">
           <div class="row">
             <div
-              class="about-section-content col-md-12 col-lg-8 pt-1 pe-5 offset-0 offset-lg-4">
+              class="section-content col-md-12 col-lg-8 pt-1 pe-5 offset-0 offset-lg-4">
               <h2 class="intro">
                 A trusted provider of financial news and services for
                 individuals and businesses alike.
@@ -84,7 +72,7 @@
               class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
               <h3 class="pt-3">Our mission</h3>
             </div>
-            <div class="about-section-content col-md-12 col-lg-8 pt-1 pe-5">
+            <div class="section-content col-md-12 col-lg-8 pt-1 pe-5">
               <div class="description pt-3">
                 <p>
                   The cost of living has been increasing globally in recent
@@ -118,12 +106,12 @@
               class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
               <h3 class="pt-3">Our Services</h3>
             </div>
-            <div class="about-section-content col-md-12 col-lg-8">
+            <div class="section-content col-md-12 col-lg-8">
               <div class="description pt-3">
                 <p>
                   We provide financial advice and services for individuals and
-                  small businesses. Get <a href="#contact">in touch</a> for a
-                  custom quote.
+                  small businesses. Get <a href="contact.html">in touch</a> for
+                  a custom quote.
                 </p>
               </div>
               <div class="grid">
@@ -208,9 +196,9 @@
           <div class="row">
             <div
               class="section-title col-md-12 col-lg-4 d-flex justify-content-lg-end pe-0">
-              <h3 class="pt-3">Our Team</h3>
+              <h3 class="pt-3">Founding members</h3>
             </div>
-            <div class="about-section-content col-md-12 col-lg-8">
+            <div class="section-content col-md-12 col-lg-8">
               <div class="description pt-3">
                 <p>
                   Hardworking individuals responsible for the development and
@@ -320,100 +308,70 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="grid-item d-flex">
-                  <div class="card p-3 mb-3 me-3 rounded-0">
-                    <img
-                      src="https://cdn.midjourney.com/4c84e4c0-3f6b-409e-8842-e28d8b8da035/grid_0.png"
-                      alt="Vitaliy"
-                      style="width: 100%" />
-                    <div class="container">
-                      <h4 class="name">Vitaliy Zharkovskiy</h4>
-                      <h5 class="role">Designer</h5>
-                      <ul class="list-inline">
-                        <li class="list-inline-item">
-                          <a href="mailto:'vitaliy@lostmary.com'"
-                            ><span class="visually-hidden"
-                              >vitaliy@lostmary.com</span
-                            ><i class="fa-solid fa-at"></i
-                          ></a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#"
-                            ><span class="visually-hidden">LinkedIn</span
-                            ><i class="fa-brands fa-linkedin-in"></i
-                          ></a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a href="#"
-                            ><span class="visually-hidden">Facebook</span
-                            ><i class="fa-brands fa-facebook-f"></i
-                          ></a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
+        </section>
+        <section id="location" class="location-section mt-2 mb-4">
+          <p>
+            <i class="fa-solid fa-location-dot" aria-hidden="true"
+              ><span class="visually-hidden">Address</span></i
+            >
+            20 Cooper Square, New York<br />
+            NY 10003, USA
+          </p>
         </section>
       </div>
     </main>
     <!-- Footer -->
     <footer class="bg-dark text-white">
-      <div class="container p-4">
+      <div class="container px-4 py-5">
         <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <h4 class="text-uppercase">FINFOCUS</h4>
-            <p class="fst-italic">
+            <p class="fst-italic pe-5">
               A trusted provider of financial news and services for individuals
               and businesses alike
-            </p>
-            <p>
-              <i class="fa-solid fa-location-dot" aria-hidden="true"
-                ><span class="visually-hidden">Address</span></i
-              >
-              20 Cooper Square, New York<br />
-              NY 10003, USA
             </p>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">About</a>
+                <a href="index.html#business" class="text-white">Business</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Terms & Conditions</a>
+                <a href="index.html#technology" class="text-white"
+                  >Technology</a
+                >
               </li>
               <li>
-                <a href="#!" class="text-white">Privacy Policy</a>
+                <a href="index.html#politics" class="text-white">Politics</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Contact us</a>
+                <a href="index.html#world" class="text-white">World</a>
+              </li>
+              <li>
+                <a href="index.html#finances" class="text-white">Finances</a>
               </li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <ul class="list-unstyled">
+            <ul class="list-unstyled mb-0">
               <li>
-                <a href="#!" class="text-white">Finance</a>
+                <a href="about.html" class="text-white">About</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Buisness</a>
+                <a href="terms.html" class="text-white">Terms & Conditions</a>
               </li>
               <li>
-                <a href="#!" class="text-white">Entrepreneurs</a>
-              </li>
-              <li>
-                <a href="#!" class="text-white">Your money</a>
+                <a href="contact.html" class="text-white">Contact us</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 1)">
-        <p>LOST MARY © 2023</p>
+      <div class="copyright text-center pt-3 pb-1">
+        <p>LOST MARY © <span id="year"></span></p>
       </div>
     </footer>
     <!-- ------------------------------------------------------------------- -->
