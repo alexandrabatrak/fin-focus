@@ -18,9 +18,9 @@ body {
 .navbar-brand,
 .navbar-nav a,
 .nav a,
-.badge, 
-.category-tab.nav-link
-/* + footer elements */ {
+.badge,
+.category-tab.nav-link,
+footer h5 {
   font-family: var(--serif);
 }
 
@@ -93,6 +93,10 @@ section .heading-title {
   font-family: var(--serif);
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.heading-title h2 {
+  margin-bottom: 0;
 }
 
 /* stock bar */
@@ -259,10 +263,6 @@ article .badge {
 }
 
 /* aside */
-aside {
-  border-left: 2px solid var(--light);
-}
-
 .aside-container {
   overflow: hidden;
 }
@@ -282,6 +282,18 @@ aside article {
 
 #aside-top-news .article-title h3 {
   font-size: 1.25rem;
+}
+
+footer h5 {
+  letter-spacing: 5px;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent) !important;
 }
 
 .copyright {
@@ -398,6 +410,12 @@ aside article {
 @media (min-width: 768px) {
   .top-section article:not(.featured) .badge {
     left: -1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  aside {
+    border-left: 2px solid var(--light);
   }
 }
 
