@@ -297,7 +297,7 @@ footer a:hover {
   color: var(--accent) !important;
 }
 
-footer div:not(.copyright) p {
+footer p.fst-italic {
   font-size: 1.5rem;
   font-family: var(--serif);
 }
