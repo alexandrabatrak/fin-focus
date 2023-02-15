@@ -16,23 +16,6 @@ function asideNewsRender() {
 }
 asideNewsRender();
 
-// async function news() {
-//   try {
-//     const [] = await Promise.all([]);
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//     if ($('#loader')) {
-//       setTimeout(() => {
-//         $('#loader').addClass('hide');
-//         setTimeout(() => {
-//           $('#loader').remove();
-//         }, 500);
-//       }, 500);
-//     }
-//   }
-// }
-
 function renderTopArtcilesSections(section, articles, isMain) {
   let ny = `https://api.nytimes.com/svc/topstories/v2/${section}.json?api-key=${API_KEY_NT}`;
 
@@ -42,10 +25,12 @@ function renderTopArtcilesSections(section, articles, isMain) {
   })
     .then(function (resp) {
       let results = resp.results;
+      console.log(results);
 
       if (resp.status === 'OK') {
         if (isMain) {
           // skip empty articles
+          // doesn't solve the issue if the [0] and [2] are empty.
           let startIndex = 0;
           while (startIndex < results.length && !results[startIndex].url) {
             startIndex++;

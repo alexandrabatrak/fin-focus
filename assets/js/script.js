@@ -45,3 +45,9 @@ contactHeight();
 
 // copyright year
 $('#year').text(moment().format('YYYY'));
+
+AOS.init({
+  easing: 'ease-in-out',
+  // once: true,
+  duration: 600,
+});

@@ -22,7 +22,7 @@ const swiper = new Swiper('.swiper', {
       spaceBetween: 0,
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 0,
     },
     992: {
@@ -63,10 +63,14 @@ const swiperCrypto = new Swiper('.swiper-crypto', {
       spaceBetween: 0,
     },
     768: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 0,
     },
     992: {
+      slidesPerView: 2,
+      spaceBetween: 0,
+    },
+    1200: {
       slidesPerView: 2,
       spaceBetween: 0,
     },
