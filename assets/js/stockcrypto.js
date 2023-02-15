@@ -32,9 +32,9 @@ if (moment().day() === 1) {
 } else {
   // Wednesday, Thursday or Friday
   if (moment().hour() >= 0 && moment().hour() < 8) {
-    date = moment().subtract(1, 'days').format('YYYY-MM-DD');
-  } else {
     date = moment().subtract(1.5, 'days').format('YYYY-MM-DD');
+  } else {
+    date = moment().subtract(1, 'days').format('YYYY-MM-DD');
   }
 }
 
