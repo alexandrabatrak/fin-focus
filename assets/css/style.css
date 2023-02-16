@@ -203,6 +203,21 @@ section .heading-title {
   height: 100%;
 }
 
+#favourite {
+  padding: 0.75rem 1rem;
+  font-size: 0.89rem;
+  transition: all 0.5s ease-in-out;
+}
+
+#favourite:hover {
+  color: var(--accent);
+}
+
+#favourite.pressed {
+  transform: scale(1.2);
+  color: var(--accent);
+}
+
 article .badge {
   width: fit-content;
   background: black;
@@ -286,6 +301,21 @@ article .badge {
 /* aside */
 .aside-container {
   overflow: hidden;
+}
+
+.greeting .btn,
+.contact button.submit {
+  border: 2px solid var(--accent);
+  background: white;
+  color: var(--accent);
+}
+
+.greeting .btn:hover,
+.greeting .btn:focus,
+.contact button.submit:hover,
+.contact button.submit:focus {
+  background: var(--accent);
+  color: white;
 }
 
 .aside-title {
@@ -425,18 +455,6 @@ span.purecounter.percentage::after {
 .form-check-input:checked {
   background-color: var(--accent);
   border-color: var(--accent);
-}
-
-.contact button.submit {
-  border: 2px solid var(--accent);
-  background: white;
-  color: var(--accent);
-}
-
-.contact button.submit:hover,
-.contact button.submit:focus {
-  background: var(--accent);
-  color: white;
 }
 
 .terms span.display-5 {

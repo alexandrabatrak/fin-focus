@@ -69,7 +69,7 @@ function renderTopArtcilesSections(section, articles, isMain) {
       `);
           $articleElement.find('.badge').text(`${category}`);
           $articleElement.find('.article-title')
-            .append(`<a class="stretched-link" href="${articleURL} target="_blank"><h3>
+            .append(`<a class="stretched-link" href="${articleURL}" target="_blank"><h3>
       ${title}</h3></a>`);
           $articleElement
             .find('.article-abstract')
@@ -79,6 +79,8 @@ function renderTopArtcilesSections(section, articles, isMain) {
             .find('.last-updated')
             .append(`<span>Published on</span> ${publishedDate}`);
         }
+      } else {
+        showError($articleElement);
       }
     })
     .catch((err) => {
@@ -92,7 +94,7 @@ let keywords = $('.category-news .nav').find('.category-tab').data('category');
 let categoryNews = $('.category-news-articles-wrapper');
 let searchResults = $(
   `<section id="search-results" class="search-results category-news">
-    <div class="heading-title pt-4 pb-2 mb-5">
+    <div class="heading-title p-3 mb-5">
       <h2>Search results for <span id="searchKeyword" class="fst-italic"></span></h2>
     </div>
     <div class="row"></div>
@@ -117,7 +119,7 @@ $('form#search').on('submit', function (e) {
     searchResults.find('#searchKeyword').text(keywords);
     $('.main-content').empty().append(searchResults);
     categoryNews = searchResults;
-    searchNews(keywords, categoryNews, true);
+    searchNews(keywords, categoryNews, true, false, url);
     setTimeout(() => {
       $('#search input').val('').blur();
       $('html,body').animate({ scrollTop: $('#search-results').offset().top });
@@ -129,7 +131,9 @@ $('form#search').on('submit', function (e) {
 function searchNews(keywords, categoryNews, isSearch) {
   let startDate = moment('2019').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
-  let searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Financial", "Business day", "SundayBusiness", "Personal Investing", "Small Business", "Wealth")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
+
+  let searchArticles;
+  searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&q=${keywords}&fq=news_desk:("Business", "Your Money", "Entrepreneurs", "Financial", "Business day", "SundayBusiness", "Personal Investing", "Small Business", "Wealth")&begin_date=${startDate}&end_date=${endDate}&sort=newest&api-key=${API_KEY_NT}`;
 
   $.ajax({
     url: searchArticles,
@@ -137,31 +141,32 @@ function searchNews(keywords, categoryNews, isSearch) {
   })
     .then(function (resp) {
       let results = resp.response.docs;
-
-      for (let i = 0; i < results.length; i++) {
-        let thumbnail;
-        if (results[i].multimedia.length > 0) {
-          thumbnail = `'https://www.nytimes.com/${
-            results[i].multimedia.find((o) => o.crop_name === 'windowsTile336H')
-              .url
-          }'`;
-        }
-        let category = results[i].section_name;
-        let title = results[i].headline.main;
-        let articleURL = results[i].web_url;
-        let abstract = results[i].abstract;
-        let leadParagraph = results[i].lead_paragraph;
-        let byline = results[i].byline.original;
-        let publishedDate = moment(results[i].pub_date).format('LL');
-        if (!isSearch) {
-          categoryNews = $('.category-news-articles-wrapper').filter(
-            function () {
-              return $(this).data('category') === keywords;
-            }
-          );
-        }
-        categoryNews.find('.row').prepend(
-          `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
+      if (resp.status === 'OK') {
+        for (let i = 0; i < results.length; i++) {
+          let thumbnail;
+          if (results[i].multimedia.length > 0) {
+            thumbnail = `'https://www.nytimes.com/${
+              results[i].multimedia.find(
+                (o) => o.crop_name === 'windowsTile336H'
+              ).url
+            }'`;
+          }
+          let category = results[i].section_name;
+          let title = results[i].headline.main;
+          let articleURL = results[i].web_url;
+          let abstract = results[i].abstract;
+          let leadParagraph = results[i].lead_paragraph;
+          let byline = results[i].byline.original;
+          let publishedDate = moment(results[i].pub_date).format('LL');
+          if (!isSearch) {
+            categoryNews = $('.category-news-articles-wrapper').filter(
+              function () {
+                return $(this).data('category') === keywords;
+              }
+            );
+          }
+          categoryNews.find('.row').prepend(
+            `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
             <article class="w-100">
               <div class="article-content d-flex flex-column flex-md-row">
                 <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
@@ -188,13 +193,140 @@ function searchNews(keywords, categoryNews, isSearch) {
               </div>
             </article>
           </div>`
-        );
+          );
+        }
+      } else {
+        let element = favouriteResults.find('row');
+        showError(element);
       }
     })
     .catch((err) => {
       let element = categoryNews.find('row');
       showError(element);
     });
+}
+
+//saved articles
+let savedArticlesLinks =
+  JSON.parse(localStorage.getItem('savedArticlesLinks')) || [];
+
+$('#view-favourites').on('click', getFavourites);
+$('.main-content').on('click', '#favourite', function () {
+  $(this).find('i').addClass('fa-beat');
+  const articleURL = $(this)
+    .parent()
+    .parent()
+    .parent()
+    .find('a.stretched-link')
+    .attr('href');
+
+  if (!savedArticlesLinks.includes(articleURL)) {
+    savedArticlesLinks.push(articleURL);
+    localStorage.setItem(
+      'savedArticlesLinks',
+      JSON.stringify(savedArticlesLinks)
+    );
+  }
+  setTimeout(() => {
+    $(this).find('i').removeClass('fa-beat');
+  }, 1000);
+});
+
+// TODO: create some sort of input for visitor name
+// let visitor = JSON.parse(localStorage.getItem('visitor')) || [];
+// if (visitor) {
+//   $('#visitor').text(visitor);
+// }
+// $('#visitor').on('click', function () {
+//   $(this).html('<input id="visitor-input">');
+//   visitor = $('#visitor-input').val();
+//   localStorage.setItem('visitor', JSON.stringify(visitor));
+// });
+
+// TODO: Add button to remove the article from favourites
+function getFavourites() {
+  let url;
+  for (let i = 0; i < savedArticlesLinks.length; i++) {
+    url = savedArticlesLinks[i];
+    renderNews(url);
+  }
+
+  let favouriteResults = $(
+    `<section id="search-results" class="search-results category-news">
+      <div class="heading-title p-3 mb-5">
+        <h2>Saved articles</h2>
+      </div>
+      <div class="row"></div>
+    </section>`
+  );
+
+  $('.main-content').empty().append(favouriteResults);
+
+  function renderNews(url) {
+    searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=web_url:"${url}"&api-key=${API_KEY_NT}`;
+
+    $.ajax({
+      url: searchArticles,
+      method: 'GET',
+    })
+      .then(function (resp) {
+        if (resp.status === 'OK') {
+          let article = resp.response.docs[0];
+
+          let thumbnail;
+          if (article.multimedia.length > 0) {
+            thumbnail = `'https://www.nytimes.com/${
+              article.multimedia.find((o) => o.crop_name === 'windowsTile336H')
+                .url
+            }'`;
+          }
+          let category = article.section_name;
+          let title = article.headline.main;
+          let articleURL = article.web_url;
+          let abstract = article.abstract;
+          let leadParagraph = article.lead_paragraph;
+          let byline = article.byline.original;
+          let publishedDate = moment(article.pub_date).format('LL');
+
+          favouriteResults.find('.row').prepend(
+            `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
+              <article class="w-100">
+                <div class="article-content d-flex flex-column flex-md-row">
+                  <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
+                    <div class="thumbnail-bg" style="background-image: url(${
+                      thumbnail ? thumbnail : ''
+                    })"></div>
+                    <div
+                      class="badge category mt-0 rounded-0 text-white text-uppercase text-right position-absolute bottom-0 end-0">
+                      ${category}</div>
+                  </div>
+                  <div class="article-details col-sm-12 col-md-8">
+                    <div class="article-title mb-3">
+                      <h3 class="pb-3">${title}</h3>
+                      <div class="by-line">${byline}</div>
+                      <div class="published"><span>Published on </span>${publishedDate}</div>
+                    </div>
+                    <div class="article-abstract mb-3">
+                      <h5>${abstract}</h5>
+                    </div>
+                    <div class="article-lead">
+                      <p>${leadParagraph}... <a class="stretched-link" href="${articleURL}" target="_blank"><span class="read-more">Read more</span></a></p>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>`
+          );
+        } else {
+          let element = favouriteResults.find('row');
+          showError(element);
+        }
+      })
+      .catch((err) => {
+        let element = favouriteResults.find('row');
+        showError(element);
+      });
+  }
 }
 
 function showError(element) {
@@ -206,3 +338,15 @@ function showError(element) {
     );
   }
 }
+
+// ?? link isn't returned wth
+$(document).ready(function () {
+  $('.top-section article').each(function () {
+    const icon = $(this).find('#favourite i');
+    const link = $(this).find('a.stretched-link').attr('href');
+    // console.log(link);
+    if (savedArticlesLinks.includes(link)) {
+      icon.css('color', '#088081');
+    }
+  });
+});
