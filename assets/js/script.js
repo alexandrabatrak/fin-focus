@@ -46,8 +46,10 @@ contactHeight();
 // copyright year
 $('#year').text(moment().format('YYYY'));
 
-AOS.init({
-  easing: 'ease-in-out',
-  // once: true,
-  duration: 600,
-});
+if (!$('body').hasClass('home')) {
+  AOS.init({
+    easing: 'ease-in-out',
+    // once: true,
+    duration: 600,
+  });
+}
