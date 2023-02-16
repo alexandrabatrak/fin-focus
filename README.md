@@ -8,3 +8,7 @@ The cost of living has been increasing globally in recent years, due to a variet
 There is so much the government can do to help struggling households and it is up to individuals to explore ways of how to bring in additional income to hopefully help ease their financial struggles. At FinFocus, our mission is to help our those impacted navigate the challenges of the current global economic landscape, and to provide them with the resources they need to achieve financial stability and security.
 
 ## Description
+
+
+
+[![Image of github-profile-views-counter](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/svg/598676123/badge.svg)](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/readme/598676123/week.md)
