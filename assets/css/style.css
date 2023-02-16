@@ -394,6 +394,15 @@ footer p.fst-italic {
   border: 2px solid var(--light);
 }
 
+span.purecounter {
+  font-family: var(--serif);
+  font-size: 4rem;
+}
+
+span.purecounter.percentage::after {
+  content: '%';
+}
+
 .icon-wrapper i {
   color: var(--accent);
 }
@@ -489,7 +498,8 @@ footer p.fst-italic {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .team-section .grid {
+  .team-section .grid,
+  .stats-section .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
