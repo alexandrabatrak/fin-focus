@@ -52,4 +52,5 @@ if (!$('body').hasClass('home')) {
     // once: true,
     duration: 600,
   });
+  new PureCounter();
 }
