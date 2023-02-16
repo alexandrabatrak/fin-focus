@@ -87,6 +87,8 @@ _Lost Mary_ development team:
 - @mrBimsy Damian Rosiak
 - @ademolaalashe Ademola Alashe
 
+Project URL: https://alexandrabatrak.github.io/fin-focus/
+
 ## Licence
 
 Licenced under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
