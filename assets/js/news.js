@@ -25,7 +25,6 @@ function renderTopArtcilesSections(section, articles, isMain) {
   })
     .then(function (resp) {
       let results = resp.results;
-      console.log(results);
 
       // filter results not to show 'promo'
       results = results.filter((results) => {
