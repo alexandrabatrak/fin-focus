@@ -2,6 +2,11 @@ const API_KEY_NT = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
 let section, articles;
 const sections = ['business', 'technology', 'politics', 'world'];
 
+const loading =
+  $(`<div id="loading" class="loading d-flex justify-content-center w-100 mt-5">
+<i class="fa-solid fa-spinner fa-spin"><span class="visually-hidden"</span></i>
+</div>`);
+
 sections.forEach((section) => {
   if ($(`.top-section[data-section="${section}"]`).length) {
     articles = $(`.top-section[data-section="${section}"] article`);
@@ -119,7 +124,7 @@ $('form#search').on('submit', function (e) {
     searchResults.find('#searchKeyword').text(keywords);
     $('.main-content').empty().append(searchResults);
     categoryNews = searchResults;
-    searchNews(keywords, categoryNews, true, false, url);
+    searchNews(keywords, categoryNews, true, false);
     setTimeout(() => {
       $('#search input').val('').blur();
       $('html,body').animate({ scrollTop: $('#search-results').offset().top });
@@ -129,6 +134,7 @@ $('form#search').on('submit', function (e) {
 
 // TODO: use facet *section_name* instead of keywords
 function searchNews(keywords, categoryNews, isSearch) {
+  categoryNews.find('.row').prepend(loading);
   let startDate = moment('2019').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
 
@@ -142,31 +148,38 @@ function searchNews(keywords, categoryNews, isSearch) {
     .then(function (resp) {
       let results = resp.response.docs;
       if (resp.status === 'OK') {
-        for (let i = 0; i < results.length; i++) {
-          let thumbnail;
-          if (results[i].multimedia.length > 0) {
-            thumbnail = `'https://www.nytimes.com/${
-              results[i].multimedia.find(
-                (o) => o.crop_name === 'windowsTile336H'
-              ).url
-            }'`;
-          }
-          let category = results[i].section_name;
-          let title = results[i].headline.main;
-          let articleURL = results[i].web_url;
-          let abstract = results[i].abstract;
-          let leadParagraph = results[i].lead_paragraph;
-          let byline = results[i].byline.original;
-          let publishedDate = moment(results[i].pub_date).format('LL');
-          if (!isSearch) {
-            categoryNews = $('.category-news-articles-wrapper').filter(
-              function () {
-                return $(this).data('category') === keywords;
-              }
-            );
-          }
-          categoryNews.find('.row').prepend(
-            `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
+        if (results.length === 0) {
+          $('#loading').remove();
+          let element = categoryNews.find('.row');
+          showError(element);
+        } else {
+          for (let i = 0; i < results.length; i++) {
+            let thumbnail;
+            if (results[i].multimedia.length > 0) {
+              thumbnail = `'https://www.nytimes.com/${
+                results[i].multimedia.find(
+                  (o) => o.crop_name === 'windowsTile336H'
+                ).url
+              }'`;
+            }
+            let category = results[i].section_name;
+            let title = results[i].headline.main;
+            let articleURL = results[i].web_url;
+            let abstract = results[i].abstract;
+            let leadParagraph = results[i].lead_paragraph;
+            let byline = results[i].byline.original;
+            let publishedDate = moment(results[i].pub_date).format('LL');
+            if (!isSearch) {
+              categoryNews = $('.category-news-articles-wrapper').filter(
+                function () {
+                  return $(this).data('category') === keywords;
+                }
+              );
+            }
+
+            $('#loading').remove();
+            categoryNews.find('.row').prepend(
+              `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
             <article class="w-100">
               <div class="article-content d-flex flex-column flex-md-row">
                 <div class="thumbnail col-sm-12 col-md-4 me-3 position-relative">
@@ -193,15 +206,26 @@ function searchNews(keywords, categoryNews, isSearch) {
               </div>
             </article>
           </div>`
-          );
+            );
+          }
         }
       } else {
-        let element = favouriteResults.find('row');
+        let element;
+        if (!isSearch) {
+          element = categoryNews.find('.row');
+        } else {
+          element = searchResults.find('row');
+        }
         showError(element);
       }
     })
     .catch((err) => {
-      let element = categoryNews.find('row');
+      let element;
+      if (!isSearch) {
+        element = categoryNews.find('.row');
+      } else {
+        element = searchResults.find('row');
+      }
       showError(element);
     });
 }
@@ -246,11 +270,6 @@ $('.main-content').on('click', '#favourite', function () {
 // TODO: Add button to remove the article from favourites
 function getFavourites() {
   let url;
-  for (let i = 0; i < savedArticlesLinks.length; i++) {
-    url = savedArticlesLinks[i];
-    renderNews(url);
-  }
-
   let favouriteResults = $(
     `<section id="search-results" class="search-results category-news">
       <div class="heading-title p-3 mb-5">
@@ -260,9 +279,23 @@ function getFavourites() {
     </section>`
   );
 
+  for (let i = 0; i < savedArticlesLinks.length; i++) {
+    url = savedArticlesLinks[i];
+    renderNews(url);
+  }
+
+  if (savedArticlesLinks.length === 0) {
+    favouriteResults.append(
+      `<div class="pe-3 pb-4">
+        <p class="pb-3">No saved articles.</p>
+        <small>To save the article, click on the <i class="fa-solid fa-heart"></i> icon at the upper left corner of the article thumbnail.</small>
+      </div>`
+    );
+  }
   $('.main-content').empty().append(favouriteResults);
 
   function renderNews(url) {
+    favouriteResults.find('.row').prepend(loading);
     searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=web_url:"${url}"&api-key=${API_KEY_NT}`;
 
     $.ajax({
@@ -288,6 +321,7 @@ function getFavourites() {
           let byline = article.byline.original;
           let publishedDate = moment(article.pub_date).format('LL');
 
+          $('#loading').remove();
           favouriteResults.find('.row').prepend(
             `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
               <article class="w-100">
@@ -330,13 +364,11 @@ function getFavourites() {
 }
 
 function showError(element) {
-  if (!$('.error')) {
-    element.empty().append(
-      `<div class="error pe-3 pb-4">
-        <p class="pb-3">Apologies, could not retrive the article.</p>
+  element.append(
+    `<div class="error pe-3 pb-4">
+        <p class="pb-3">No articles found.</p>
       </div>`
-    );
-  }
+  );
 }
 
 // ?? link isn't returned wth
