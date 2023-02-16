@@ -91,7 +91,7 @@ function renderTopArtcilesSections(section, articles, isMain) {
 let keywords = $('.category-news .nav').find('.category-tab').data('category');
 let categoryNews = $('.category-news-articles-wrapper');
 let searchResults = $(
-  `<section class="search-results category-news">
+  `<section id="search-results" class="search-results category-news">
     <div class="heading-title pt-4 pb-2 mb-5">
       <h2>Search results for <span id="searchKeyword" class="fst-italic"></span></h2>
     </div>
@@ -105,6 +105,7 @@ $('.category-news').on('click', '.nav-item button', function () {
   searchNews(keywords, categoryNews, false);
 });
 
+// TODO: display loading indication while articles are loading
 $('form#search').on('submit', function (e) {
   e.preventDefault();
   let input = $('#search input');
@@ -118,7 +119,8 @@ $('form#search').on('submit', function (e) {
     categoryNews = searchResults;
     searchNews(keywords, categoryNews, true);
     setTimeout(() => {
-      $('#search input').val('');
+      $('#search input').val('').blur();
+      $('html,body').animate({ scrollTop: $('#search-results').offset().top });
     });
   }
 });
