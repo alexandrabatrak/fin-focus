@@ -25,33 +25,23 @@ function renderTopArtcilesSections(section, articles, isMain) {
   })
     .then(function (resp) {
       let results = resp.results;
-      console.log(results);
+
+      // filter results not to show 'promo'
+      results = results.filter((results) => {
+        return results.item_type.includes('Article');
+      });
 
       if (resp.status === 'OK') {
         if (isMain) {
-          // skip empty articles
-          // doesn't solve the issue if the [0] and [2] are empty.
-          let startIndex = 0;
-          while (startIndex < results.length && !results[startIndex].url) {
-            startIndex++;
-          }
-          if (startIndex < results.length) {
-            const featuredArticle = results[startIndex];
-            updateArticleContent(featuredArticle, $(articles[0]));
-            for (let i = 1; i < 3; i++) {
-              let article = results[startIndex + i];
-              if (!article || !article.url) {
-                break;
-              }
-              updateArticleContent(article, $(articles[i]));
-            }
+          const featuredArticle = results[0];
+          updateArticleContent(featuredArticle, $(articles[0]));
+          for (let i = 1; i < 3; i++) {
+            let article = results[i];
+            updateArticleContent(article, $(articles[i]));
           }
         } else {
           for (let i = 3; i < articles.length + 3; i++) {
-            let article = results[i - 3];
-            if (!article || !article.url) {
-              break;
-            }
+            let article = results[i];
             updateArticleContent(article, $(articles[i - 3]));
           }
         }
@@ -145,7 +135,6 @@ function searchNews(keywords, categoryNews, isSearch) {
   })
     .then(function (resp) {
       let results = resp.response.docs;
-      console.log(results);
 
       for (let i = 0; i < results.length; i++) {
         let thumbnail;
