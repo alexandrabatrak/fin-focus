@@ -65,6 +65,10 @@ body:not(.about).navbar ul li a {
   border-color: var(--accent);
 }
 
+.sticky-nav .nav-item a {
+  color: black;
+}
+
 .sticky-nav .nav-item:hover a {
   color: white;
 }
@@ -189,6 +193,7 @@ section .heading-title {
 .thumbnail {
   width: 100%;
   height: 100%;
+  background-color: gray;
 }
 
 .featured.thumbnail {

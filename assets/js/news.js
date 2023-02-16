@@ -2,6 +2,11 @@ const API_KEY_NT = 'FwLzNfy2zMccC5ApnWI1jbUfKos1SA1n';
 let section, articles;
 const sections = ['business', 'technology', 'politics', 'world'];
 
+const loading =
+  $(`<div id="loading" class="loading d-flex justify-content-center w-100 mt-5">
+<i class="fa-solid fa-spinner fa-spin"><span class="visually-hidden"</span></i>
+</div>`);
+
 sections.forEach((section) => {
   if ($(`.top-section[data-section="${section}"]`).length) {
     articles = $(`.top-section[data-section="${section}"] article`);
@@ -129,6 +134,7 @@ $('form#search').on('submit', function (e) {
 
 // TODO: use facet *section_name* instead of keywords
 function searchNews(keywords, categoryNews, isSearch) {
+  categoryNews.find('.row').prepend(loading);
   let startDate = moment('2019').format('YYYYMMDD');
   let endDate = moment().format('YYYYMMDD');
 
@@ -143,6 +149,7 @@ function searchNews(keywords, categoryNews, isSearch) {
       let results = resp.response.docs;
       if (resp.status === 'OK') {
         if (results.length === 0) {
+          $('#loading').remove();
           let element = categoryNews.find('.row');
           showError(element);
         } else {
@@ -169,6 +176,8 @@ function searchNews(keywords, categoryNews, isSearch) {
                 }
               );
             }
+
+            $('#loading').remove();
             categoryNews.find('.row').prepend(
               `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
             <article class="w-100">
@@ -207,7 +216,6 @@ function searchNews(keywords, categoryNews, isSearch) {
         } else {
           element = searchResults.find('row');
         }
-        console.log(element, 'eekejf');
         showError(element);
       }
     })
@@ -218,7 +226,6 @@ function searchNews(keywords, categoryNews, isSearch) {
       } else {
         element = searchResults.find('row');
       }
-      console.log(element);
       showError(element);
     });
 }
@@ -281,13 +288,14 @@ function getFavourites() {
     favouriteResults.append(
       `<div class="pe-3 pb-4">
         <p class="pb-3">No saved articles.</p>
-        <small>To save article, click on the <i class="fa-solid fa-heart"></i> icon at the upper left corner of article thumbnail.</small>
+        <small>To save the article, click on the <i class="fa-solid fa-heart"></i> icon at the upper left corner of the article thumbnail.</small>
       </div>`
     );
   }
   $('.main-content').empty().append(favouriteResults);
 
   function renderNews(url) {
+    favouriteResults.find('.row').prepend(loading);
     searchArticles = `https://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=web_url:"${url}"&api-key=${API_KEY_NT}`;
 
     $.ajax({
@@ -313,6 +321,7 @@ function getFavourites() {
           let byline = article.byline.original;
           let publishedDate = moment(article.pub_date).format('LL');
 
+          $('#loading').remove();
           favouriteResults.find('.row').prepend(
             `<div class="article-wrapper pe-3 pb-4 mb-5 position-relative">
               <article class="w-100">
@@ -355,15 +364,11 @@ function getFavourites() {
 }
 
 function showError(element) {
-  console.log('sdkjfvhnsdkv');
-  console.log(element);
-  // if ($('.error').length !== 0) {
   element.append(
     `<div class="error pe-3 pb-4">
         <p class="pb-3">No articles found.</p>
       </div>`
   );
-  // }
 }
 
 // ?? link isn't returned wth
