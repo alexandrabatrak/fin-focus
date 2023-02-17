@@ -16,6 +16,7 @@ Project has been created with a user in mind - a finance novice interested in al
 >
 > - [x] Have access to financial articles for the latest insights
 > - [x] Search articles by keyword
+> - [x] Save top articles for later and access them anytime
 > - [x] Have the latest information for crypto exchange rates against USD
 > - [x] Get the latest stocks and shares updates
 > - [x] Find financial news categories
@@ -30,7 +31,8 @@ Web application build with JavaScript/jQuery and Bootstrap for pages structure a
 
 - [x] Easy to navigate financial news website
 - [x] Pages: main, about, contact and terms.
-- [x] Financial news rendered in several categories with featured articles.
+- [x] Financial news rendered in several categories with featured articles
+- [x] Add articles to favourites and retain them between refreshes
 - [x] Search NY times financial articles by keywords
 - [x] Full list of top articles in the aside section
 - [x] Sliders with stock and crypto data (swiperjs)
@@ -58,8 +60,9 @@ Web application build with JavaScript/jQuery and Bootstrap for pages structure a
 
 - Separate section for more stock display with filter and sorting options
 - Integrate the option to search historical data for stocks and crypto
+- Have an option to favourite selected crypto/stocks to follow
 - Introduce another news API to expand the scope of news
-- Add on-site search (as opposed to search for the API)
+- Add on-site search
 - Live currency converter
 
 ## Credits
