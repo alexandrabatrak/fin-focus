@@ -94,4 +94,6 @@ _Lost Mary_ development team:
 
 Licenced under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
 
+[![Image of github-profile-views-counter](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/svg/598676123/badge.svg)](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/readme/598676123/week.md)
+
 _Copyright © 2023 Lost Mary_
