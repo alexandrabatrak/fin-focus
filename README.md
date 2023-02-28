@@ -1,7 +1,5 @@
 # F I N F O C U S
 
-Bootcamp week 09/10 :green_heart:
-
 ## About
 
 _FinFocus_ is a trusted provider of financial news and services for individuals and businesses alike.
