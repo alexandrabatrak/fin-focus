@@ -84,9 +84,9 @@ Other
 
 _Lost Mary_ development team:
 
-- @alexandrabatrak Alexandra Batrak
-- @mrBimsy Damian Rosiak
-- @ademolaalashe Ademola Alashe
+- [@alexandrabatrak](https://github.com/alexandrabatrak) Alexandra Batrak
+- [@mrBimsy](https://github.com/mrBimsy) Damian Rosiak
+- [@ademolaalashe](https://github.com/ademolaalashe) Ademola Alashe
 
 ## Licence
 
